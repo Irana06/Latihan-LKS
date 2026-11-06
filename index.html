@@ -176,6 +176,26 @@ th{font:500 11.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;col
 .tin input{flex:1;min-width:0;background:none;border:0;color:#fff;font:16px var(--mono);outline:none}
 .pe textarea{display:block;width:100%;min-height:200px;background:var(--night);color:var(--night-text);border:0;padding:14px 16px;font:13.5px/1.6 var(--mono);resize:vertical;outline:none;tab-size:4}
 
+.cp.try-it{right:72px;color:var(--ai-light);border-color:#a3aee866}
+.cp.try-it:hover{color:#fff;border-color:var(--ai-light)}
+
+/* ---------- Latihan harian ---------- */
+.dr-top{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between;margin:24px 0 16px;padding:14px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
+.dr-top label{display:flex;gap:10px;align-items:center;font-size:14px;color:var(--mute)}
+.dr-top select{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line-strong);border-radius:var(--r);padding:8px 10px;cursor:pointer}
+.dr-stats{display:flex;flex-wrap:wrap;gap:6px 20px;font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--subtle)}
+.dr-stats b{color:var(--ink);font-size:15px;letter-spacing:0;margin-right:5px}
+.dr-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.dr-card small{display:block;font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ai)}
+.dr-card .q{font-size:18px;line-height:1.5;margin:6px 0 14px;color:var(--ink)}
+.dr-card input{width:100%;font:16px var(--mono);padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);background:var(--paper);color:var(--ink)}
+.dr-acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.dr-acts .btn{margin:0}
+.dr-res{margin-top:14px;padding:12px 14px;border-left:3px solid var(--ok);background:var(--okbg);border-radius:var(--r);font-size:15px}
+.dr-res.er{border-color:var(--bad);background:var(--badbg)}
+.dr-res b{display:block;margin-bottom:4px}
+.dr-res code{word-break:break-word}
+
 /* ---------- Tambahan untuk pemula: isi modul & navigasi ---------- */
 .toc{margin:28px 0 8px;padding:18px 20px;background:var(--card);border:1px solid var(--line);border-radius:var(--r)}
 .toc>b{display:block;font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--subtle);margin-bottom:8px}
@@ -252,6 +272,7 @@ a:focus-visible,summary:focus-visible,button:focus-visible,input:focus-visible,t
 <a href="#m9"><i lang="ja">九</i>Simulasi lomba</a>
 <div class="sep">Referensi</div>
 <a href="#kamus"><i lang="ja">辞</i>Kamus istilah</a>
+<a href="#ulang"><i lang="ja">復</i>Latihan harian</a>
 <a href="#next" class="lock"><i lang="ja">次</i>Peta belajar lanjutan</a>
 </div>
 </nav>
@@ -268,11 +289,13 @@ a:focus-visible,summary:focus-visible,button:focus-visible,input:focus-visible,t
 <dl>
 <div><dt>Tema</dt><dd>Modalin, platform pembiayaan UMKM</dd></div>
 <div><dt>Stack</dt><dd>Git, MySQL, PHP, Laravel, Sanctum</dd></div>
-<div><dt>Isi</dt><dd>9 modul, terminal simulasi, kuis</dd></div>
+<div><dt>Isi</dt><dd>9 modul, editor PHP, terminal latihan, kuis, latihan harian</dd></div>
 </dl>
 <div class="acts"><a class="btn" href="#m1">Mulai Modul 1 <span aria-hidden="true">→</span></a><a class="btn ghost" href="#kamus">Kamus istilah</a></div>
 </div>
 </div>
+
+<div class="note"><b>Belum punya laptop?</b> Semua latihan di situs ini bisa dikerjakan di HP: editor PHP dan MySQL sungguhan, serta terminal latihan Git dan Laravel. Bagian Persiapan di bawah baru diperlukan saat kamu sudah memakai laptop.</div>
 
 <div class="note"><b>Ketemu kata asing?</b> Kata yang bergaris putus-putus bisa diketuk untuk melihat artinya. Semua istilah dan arti kode ada di menu <a href="#kamus">Kamus istilah</a>.</div>
 
@@ -282,6 +305,7 @@ a:focus-visible,summary:focus-visible,button:focus-visible,input:focus-visible,t
 <div><b><em lang="ja">打</em>2. Ketik sendiri</b>Jangan copy-paste. Jari yang mengetik ikut mengingat.</div>
 <div><b><em lang="ja">想</em>3. Tebak dulu</b>Sebelum menjalankan, tebak hasilnya. Salah tebak itu bagus.</div>
 <div><b><em lang="ja">試</em>4. Latihan dan kuis</b>Kerjakan latihan, lalu uji pemahamanmu dengan kuis pilihan ganda di akhir tiap modul.</div>
+<div><b><em lang="ja">復</em>5. Ulang tiap hari</b>Buka <a href="#ulang">Latihan harian</a> 10 menit sehari supaya yang sudah dipelajari tidak lupa.</div>
 </div>
 
 <h3>Peta belajar</h3>
@@ -294,10 +318,10 @@ a:focus-visible,summary:focus-visible,button:focus-visible,input:focus-visible,t
 
 <div class="note"><b>Error itu normal.</b> Programmer sungguhan mengalami error setiap hari. Baca pesannya, cari nomor baris, lalu perbaiki satu per satu.</div>
 <h3>Persiapan</h3>
-<label class="ck"><input type="checkbox" data-k="p1">Laragon atau XAMPP sudah terpasang, dan MySQL bisa dinyalakan</label>
+<label class="ck"><input type="checkbox" data-k="p1"><span>Laragon atau XAMPP sudah terpasang, dan MySQL bisa dinyalakan</span></label>
 <label class="ck"><input type="checkbox" data-k="p2"><span><code>php -v</code> di terminal menampilkan versi 8.2 atau lebih baru</span></label>
-<label class="ck"><input type="checkbox" data-k="p3">Git terpasang, <code>git --version</code> berjalan</label>
-<label class="ck"><input type="checkbox" data-k="p4">VS Code terpasang, dan sudah punya akun GitHub</label>
+<label class="ck"><input type="checkbox" data-k="p3"><span>Git terpasang, <code>git --version</code> berjalan</span></label>
+<label class="ck"><input type="checkbox" data-k="p4"><span>VS Code terpasang, dan sudah punya akun GitHub</span></label>
 </section>
 
 <!-- M1 -->
@@ -341,10 +365,10 @@ git push -u origin main</code></pre>
 <h3>Praktik di laptop sendiri</h3>
 <p>Kalau sudah lancar di terminal latihan, ulangi hal yang sama di Git Bash laptopmu.</p>
 <div class="try">
-<label class="ck"><input type="checkbox" data-k="g1">Repository <code>latihan-lks</code> sudah ada di GitHub-mu dan berisi <code>halo.php</code></label>
-<label class="ck"><input type="checkbox" data-k="g2">Ubah isi <code>halo.php</code>, lalu kirim sebagai commit kedua dengan pesan yang jelas</label>
+<label class="ck"><input type="checkbox" data-k="g1"><span>Repository <code>latihan-lks</code> sudah ada di GitHub-mu dan berisi <code>halo.php</code></span></label>
+<label class="ck"><input type="checkbox" data-k="g2"><span>Ubah isi <code>halo.php</code>, lalu kirim sebagai commit kedua dengan pesan yang jelas</span></label>
 <label class="ck"><input type="checkbox" data-k="g3"><span><code>git log --oneline</code> menampilkan minimal 2 commit</span></label>
-<label class="ck"><input type="checkbox" data-k="g4">Tambahkan akun guru sebagai collaborator (Settings → Collaborators)</label>
+<label class="ck"><input type="checkbox" data-k="g4"><span>Tambahkan akun guru sebagai collaborator (Settings → Collaborators)</span></label>
 </div>
 <details><summary>Kalau ada error</summary>
 <p><b>Permission denied (publickey):</b> SSH key belum ditambahkan ke GitHub, atau <code>ssh-add</code> belum dijalankan.</p>
@@ -438,11 +462,11 @@ GROUP BY status;</code></pre>
 <h3>Soal tantangan</h3>
 <p>Coba jawab soal di bawah ini di terminal di atas.</p>
 <div class="try">
-<label class="ck"><input type="checkbox" data-k="s1">Tampilkan nama usaha yang omzetnya di atas Rp15.000.000</label>
-<label class="ck"><input type="checkbox" data-k="s2">Tampilkan nama usaha beserta jumlah pengajuannya, yang statusnya <code>submitted</code></label>
-<label class="ck"><input type="checkbox" data-k="s3">Hitung total pinjaman per usaha (tampilkan nama usaha dan totalnya)</label>
-<label class="ck"><input type="checkbox" data-k="s4">Tampilkan usaha yang belum pernah mengajukan pinjaman. Petunjuk: <code>LEFT JOIN</code> dan <code>IS NULL</code></label>
-<label class="ck"><input type="checkbox" data-k="s5">Tantangan: tampilkan pengajuan yang jumlahnya melebihi 3x omzet bulanan usahanya</label>
+<label class="ck"><input type="checkbox" data-k="s1"><span>Tampilkan nama usaha yang omzetnya di atas Rp15.000.000</span></label>
+<label class="ck"><input type="checkbox" data-k="s2"><span>Tampilkan nama usaha beserta jumlah pengajuannya, yang statusnya <code>submitted</code></span></label>
+<label class="ck"><input type="checkbox" data-k="s3"><span>Hitung total pinjaman per usaha (tampilkan nama usaha dan totalnya)</span></label>
+<label class="ck"><input type="checkbox" data-k="s4"><span>Tampilkan usaha yang belum pernah mengajukan pinjaman. Petunjuk: <code>LEFT JOIN</code> dan <code>IS NULL</code></span></label>
+<label class="ck"><input type="checkbox" data-k="s5"><span>Tantangan: tampilkan pengajuan yang jumlahnya melebihi 3x omzet bulanan usahanya</span></label>
 </div>
 <details><summary>Lihat kunci jawaban</summary>
 <pre><code>-- 1
@@ -472,7 +496,7 @@ WHERE p.jumlah &gt; u.omzet_bulanan * 3;</code></pre></details>
 <section id="m3" class="mod">
 <h2>3. Rekap PHP</h2>
 <p class="meta">Sekitar 40 menit. Mengulang dasar PHP supaya siap dipakai di Laravel.</p>
-<p>PHP butuh program PHP sungguhan, jadi bagian ini dicoba di laptopmu. Cara: simpan kode sebagai <code>nama.php</code>, buka terminal di folder itu, lalu ketik <code>php nama.php</code>.</p>
+<p>Semua contoh PHP di modul ini bisa dijalankan langsung di HP. Tekan tombol <b>Coba</b> di pojok contoh kode, ubah kodenya, lalu tekan <b>Jalankan</b>. Yang berjalan adalah PHP 8.4 sungguhan, bukan tiruan. Nanti di laptop caranya: simpan kode sebagai <code>nama.php</code>, buka terminal di folder itu, lalu ketik <code>php nama.php</code>.</p>
 <h3>Variabel, kondisi, dan perulangan</h3>
 <pre><code>&lt;?php
 $omzet = 12000000;          // int
@@ -529,12 +553,14 @@ echo rupiah(plafon(12000000)) . PHP_EOL;   // Rp36.000.000</code></pre>
 <p>Tulis fungsinya di kotak, tekan <b>Jalankan</b>, dan tes otomatis akan memeriksa jawabanmu.</p>
 <div class="pe" data-p="kat"></div>
 <div class="pe" data-p="cek"></div>
-<h3>Soal tambahan (di laptop)</h3>
+<div class="pe" data-p="flt"></div>
+<h3>Soal tambahan</h3>
+<p>Kerjakan di editor: tekan <b>Coba</b> di contoh kode mana saja, hapus isinya, lalu tulis jawabanmu sendiri.</p>
 <div class="try">
-<label class="ck"><input type="checkbox" data-k="r1">Buat fungsi <code>kategoriUsaha(int $omzetTahunan)</code>: sampai 2 miliar "Mikro", sampai 15 miliar "Kecil", sampai 50 miliar "Menengah", selebihnya "Besar"</label>
-<label class="ck"><input type="checkbox" data-k="r2">Buat fungsi <code>cekPengajuan(int $omzetBulanan, int $jumlah)</code>. Kembalikan "Ditolak: di luar batas" kalau jumlah kurang dari 5 juta atau lebih dari 50 juta, "Ditolak: melebihi plafon" kalau lebih dari 3x omzet, selain itu "Lolos"</label>
-<label class="ck"><input type="checkbox" data-k="r3">Cetak jadwal cicilan 12 bulan untuk pinjaman Rp12.000.000, bunga flat 12% per tahun. Setiap baris: <code>Bulan 1: Rp1.120.000, sisa Rp12.320.000</code></label>
-<label class="ck"><input type="checkbox" data-k="r4">Dari array <code>$pengajuan</code> di atas, tampilkan hanya yang berstatus <code>submitted</code></label>
+<label class="ck"><input type="checkbox" data-k="r1"><span>Buat fungsi <code>kategoriUsaha(int $omzetTahunan)</code>: sampai 2 miliar "Mikro", sampai 15 miliar "Kecil", sampai 50 miliar "Menengah", selebihnya "Besar"</span></label>
+<label class="ck"><input type="checkbox" data-k="r2"><span>Buat fungsi <code>cekPengajuan(int $omzetBulanan, int $jumlah)</code>. Kembalikan "Ditolak: di luar batas" kalau jumlah kurang dari 5 juta atau lebih dari 50 juta, "Ditolak: melebihi plafon" kalau lebih dari 3x omzet, selain itu "Lolos"</span></label>
+<label class="ck"><input type="checkbox" data-k="r3"><span>Cetak jadwal cicilan 12 bulan untuk pinjaman Rp12.000.000, bunga flat 12% per tahun. Setiap baris: <code>Bulan 1: Rp1.120.000, sisa Rp12.320.000</code></span></label>
+<label class="ck"><input type="checkbox" data-k="r4"><span>Dari array <code>$pengajuan</code> di atas, tampilkan hanya yang berstatus <code>submitted</code></span></label>
 </div>
 <details><summary>Lihat kunci jawaban</summary>
 <pre><code>&lt;?php
@@ -602,6 +628,10 @@ echo $p-&gt;cicilanPokok();            // 1000000</code></pre>
 <p><code>$p-&gt;cicilanPokok()</code> : panah <code>-&gt;</code> artinya "buka isi object, jalankan method ini".</p></details>
 <h3>Latihan: lengkapi method</h3>
 <div class="pe" data-p="oop"></div>
+<h3>Latihan: class yang mirip Laravel</h3>
+<p>Dua latihan ini meniru cara kerja Laravel dengan PHP biasa. Kalau kamu bisa membuatnya sendiri, nanti kamu paham apa yang dikerjakan Laravel di balik layar.</p>
+<div class="pe" data-p="res"></div>
+<div class="pe" data-p="fil"></div>
 <h3>Apa itu Laravel?</h3>
 <p><b>Laravel</b> adalah framework PHP, ibarat rangka rumah yang sudah jadi. Kamu tinggal mengisi ruangannya. Dua alat utamanya: <b>Composer</b> (pengunduh paket PHP) dan <b>Artisan</b> (asisten yang membuatkan file lewat perintah <code>php artisan ...</code>).</p>
 <p>Alur kerja saat ada permintaan masuk: <b>Route</b> (alamat) → <b>Controller</b> (pengatur) → <b>Model</b> (penghubung ke database) → hasil dikirim kembali sebagai JSON.</p>
@@ -697,6 +727,9 @@ public function store(StorePengajuanRequest $request)
 <p><code>exists:usahas,id</code> : nilainya harus ada di kolom id tabel usahas (cek foreign key).</p>
 <p><code>in:6,12,24</code> : hanya boleh salah satu dari ketiganya.</p>
 <p><code>$request-&gt;validated()</code> : hanya data yang lolos aturan, jadi aman dipakai.</p></details>
+<h3>Latihan: validasi tanpa Laravel</h3>
+<p>Form Request memeriksa data lalu mengumpulkan pesan error per kolom. Tulis versi sederhananya dengan PHP biasa.</p>
+<div class="pe" data-p="val"></div>
 <h3>Menguji dengan Postman</h3>
 <div class="try">
 <p>1. Pilih method (GET/POST), isi alamat <code>http://127.0.0.1:8000/api/pengajuan</code>.</p>
@@ -869,21 +902,21 @@ public function verify(Pengajuan $pengajuan)
 <div class="box timer"><div><small>Sisa waktu</small><b id="tm">03:00:00</b></div><button class="btn" id="tms">Mulai timer</button></div>
 <div class="note"><b>Aturan simulasi:</b> tanpa AI, tanpa forum, tanpa template dari rumah. Hanya dokumentasi resmi Laravel. Pengerjaan dimulai dari instalasi Laravel kosong.</div>
 <h3>Daftar tugas (urut dari yang terpenting)</h3>
-<label class="ck"><input type="checkbox" data-k="x1">Project Laravel baru, database MySQL tersambung, repo GitHub dibuat dan akun guru jadi collaborator</label>
-<label class="ck"><input type="checkbox" data-k="x2">Migration: users (dengan role), usaha, pengajuan, audit_logs. Primary key UUID dan soft delete</label>
-<label class="ck"><input type="checkbox" data-k="x3">Seeder: akun umkm, staff, manager, plus contoh data usaha</label>
-<label class="ck"><input type="checkbox" data-k="x4">POST /api/login dan POST /api/logout dengan Sanctum, login dibatasi 5x per menit</label>
-<label class="ck"><input type="checkbox" data-k="x5">CRUD pengajuan dengan Form Request, balasan JSON standar</label>
-<label class="ck"><input type="checkbox" data-k="x6">Aturan: jumlah 5-50 juta dan tidak boleh melebihi 3x omzet</label>
-<label class="ck"><input type="checkbox" data-k="x7">Alur persetujuan: verify (staff), approve (manager), reject, disburse, dijaga Policy</label>
-<label class="ck"><input type="checkbox" data-k="x8">Endpoint jadwal cicilan anuitas per bulan</label>
-<label class="ck"><input type="checkbox" data-k="x9">Audit log tercatat otomatis saat status berubah</label>
-<label class="ck"><input type="checkbox" data-k="x10">Daftar pengajuan memakai pagination, pencarian, dan filter status</label>
+<label class="ck"><input type="checkbox" data-k="x1"><span>Project Laravel baru, database MySQL tersambung, repo GitHub dibuat dan akun guru jadi collaborator</span></label>
+<label class="ck"><input type="checkbox" data-k="x2"><span>Migration: users (dengan role), usaha, pengajuan, audit_logs. Primary key UUID dan soft delete</span></label>
+<label class="ck"><input type="checkbox" data-k="x3"><span>Seeder: akun umkm, staff, manager, plus contoh data usaha</span></label>
+<label class="ck"><input type="checkbox" data-k="x4"><span>POST /api/login dan POST /api/logout dengan Sanctum, login dibatasi 5x per menit</span></label>
+<label class="ck"><input type="checkbox" data-k="x5"><span>CRUD pengajuan dengan Form Request, balasan JSON standar</span></label>
+<label class="ck"><input type="checkbox" data-k="x6"><span>Aturan: jumlah 5-50 juta dan tidak boleh melebihi 3x omzet</span></label>
+<label class="ck"><input type="checkbox" data-k="x7"><span>Alur persetujuan: verify (staff), approve (manager), reject, disburse, dijaga Policy</span></label>
+<label class="ck"><input type="checkbox" data-k="x8"><span>Endpoint jadwal cicilan anuitas per bulan</span></label>
+<label class="ck"><input type="checkbox" data-k="x9"><span>Audit log tercatat otomatis saat status berubah</span></label>
+<label class="ck"><input type="checkbox" data-k="x10"><span>Daftar pengajuan memakai pagination, pencarian, dan filter status</span></label>
 <h3>Sebelum waktu habis</h3>
-<label class="ck"><input type="checkbox" data-k="y1">Semua endpoint sudah dicoba di Postman, termasuk skenario gagal (401, 403, 422, 429)</label>
-<label class="ck"><input type="checkbox" data-k="y2"><code>php artisan migrate:fresh --seed</code> jalan tanpa error</label>
-<label class="ck"><input type="checkbox" data-k="y3">Daftar akun login dicatat di README</label>
-<label class="ck"><input type="checkbox" data-k="y4">Commit terakhir sudah di-push ke GitHub (cek di situs GitHub, bukan di laptop)</label>
+<label class="ck"><input type="checkbox" data-k="y1"><span>Semua endpoint sudah dicoba di Postman, termasuk skenario gagal (401, 403, 422, 429)</span></label>
+<label class="ck"><input type="checkbox" data-k="y2"><span><code>php artisan migrate:fresh --seed</code> jalan tanpa error</span></label>
+<label class="ck"><input type="checkbox" data-k="y3"><span>Daftar akun login dicatat di README</span></label>
+<label class="ck"><input type="checkbox" data-k="y4"><span>Commit terakhir sudah di-push ke GitHub (cek di situs GitHub, bukan di laptop)</span></label>
 <div class="note"><b>Strategi:</b> jangan mengejar semua fitur. Selesaikan dulu yang berjalan penuh dari login sampai CRUD, baru fitur lanjutan. Satu fitur yang berjalan lebih berharga daripada lima yang setengah jadi. Commit tiap fitur selesai.</div>
 </section>
 
@@ -896,6 +929,14 @@ public function verify(Pengajuan $pengajuan)
 </section>
 
 <!-- NEXT -->
+<!-- ULANG -->
+<section id="ulang" class="mod">
+<h2>Latihan harian</h2>
+<p class="meta">Sekitar 10 menit sehari. Ini cara supaya yang sudah dipelajari tidak hilang.</p>
+<p>Soal diambil dari modul yang sudah kamu pelajari. Jawab dengan <b>mengetik dari ingatan</b>, jangan membuka modul dulu. Soal yang salah muncul lagi besok. Soal yang benar muncul makin jarang: 2 hari, 4 hari, 8 hari, lalu 16 hari lagi. Teknik ini namanya <i>spaced repetition</i>.</p>
+<div id="dr"></div>
+</section>
+
 <section id="next" class="mod">
 <h2>Peta belajar lanjutan</h2>
 <p class="meta">Ringkasan apa yang sudah dan belum ada.</p>
@@ -1125,7 +1166,7 @@ var G=[
     var seen={},w=document.createTreeWalker(m,NodeFilter.SHOW_TEXT,null),ns=[],n;
     while((n=w.nextNode()))ns.push(n);
     ns.forEach(function(n){
-      if(n.parentNode.closest('pre,code,button,a,summary,h2,h3,u,label,.term,.quiz,#kl'))return;
+      if(n.parentNode.closest('pre,code,button,a,summary,h2,h3,u,label,.term,.quiz,#kl,#dr'))return;
       var t=n.nodeValue,rg=new RegExp(src,'gi'),ps=[],last=0,mt;
       while((mt=rg.exec(t))){var k=mt[1].toLowerCase();if(seen[k])continue;seen[k]=1;ps.push([mt.index,mt[1]])}
       if(!ps.length)return;
@@ -1359,23 +1400,31 @@ TM.lar4={n:'Terminal latihan Laravel (database lanjutan)',pr:function(S){return 
 function f(n){return (n<10?'0':'')+n}
 b.onclick=function(){clearInterval(iv);end=Date.now()+3*3600*1000;b.textContent='Ulang timer';iv=setInterval(function(){var r=Math.max(0,Math.round((end-Date.now())/1000));t.textContent=f(Math.floor(r/3600))+':'+f(Math.floor(r%3600/60))+':'+f(r%60);if(!r){clearInterval(iv);t.textContent='Waktu habis'}},500)};})();
 function mkTerm(el){
-  var T=TM[el.dataset.t],S,H,done;
+  var T=TM[el.dataset.t],S,H,done,HL={};
   el.innerHTML='<div class="tmh"><b>'+T.n+'</b><button type="button" class="hint">Petunjuk</button><button type="button" class="rs">Ulang</button></div><ul class="ms"></ul><div class="out" aria-live="polite"></div><form class="tin"><span class="pr"></span><input type="text" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false" aria-label="Ketik perintah di sini" placeholder="ketik perintah di sini"></form>';
   var ul=el.querySelector('.ms'),out=el.querySelector('.out'),pr=el.querySelector('.pr'),inp=el.querySelector('input');
   function add(cls,html){var d=document.createElement('div');if(cls)d.className=cls;d.innerHTML=html;out.appendChild(d);out.scrollTop=out.scrollHeight}
   function check(){
     var all=true;
     T.ms.forEach(function(m,i){var ok=!!m.d(S,H);ul.children[i].classList.toggle('d',ok);if(!ok)all=false});
-    if(all&&!done){done=1;add('ok','Semua misi selesai. Kerja bagus!')}
+    if(all&&!done){
+      done=1;
+      var self=T.ms.filter(function(m,i){return !HL[i]}).length;
+      add('ok','Semua misi selesai, '+self+' dari '+T.ms.length+' tanpa petunjuk.'+(self<T.ms.length?' Tekan Ulang dan coba sekali lagi tanpa petunjuk.':' Ingatanmu sudah kuat. Kerja bagus!'));
+    }
   }
   function reset(){
-    S=T.init();H='';done=0;out.innerHTML='';
+    S=T.init();H='';done=0;HL={};out.innerHTML='';
     ul.innerHTML=T.ms.map(function(m){return '<li>'+esc(m.t)+'</li>'}).join('');
     pr.textContent=T.pr(S);add('',esc(T.hi));
   }
+  // Petunjuk bertahap: pertama hanya awal perintahnya, kedua baru perintah lengkap
   el.querySelector('.hint').onclick=function(){
-    var m=T.ms.filter(function(m){return !m.d(S,H)})[0];
-    add('ok',m?'Petunjuk: '+esc(m.h):'Semua misi sudah selesai.');
+    var i=0;while(i<T.ms.length&&T.ms[i].d(S,H))i++;
+    if(i===T.ms.length){add('ok','Semua misi sudah selesai.');return}
+    var h=T.ms[i].h,w=h.split(' '),cmd=/^(git|mkdir|cd|ls|php|composer|ssh|select|echo)$/i.test(w[0])&&w.length>2;
+    HL[i]=(HL[i]||0)+1;
+    add('ok',cmd&&HL[i]===1?'Petunjuk 1: perintahnya diawali '+esc(w.slice(0,Math.ceil(w.length/2)).join(' '))+' ... Coba lanjutkan sendiri. Tekan Petunjuk lagi kalau masih buntu.':'Petunjuk: '+esc(h));
   };
   el.querySelector('.rs').onclick=reset;
   el.querySelector('form').onsubmit=function(e){
@@ -1392,16 +1441,46 @@ function mkTerm(el){
   out.onclick=function(){inp.focus()};
   reset();
 }
-var PHPP=null,PBUF='';
-function loadPhp(){
-  if(PHPP)return PHPP;
-  PHPP=import('https://cdn.jsdelivr.net/npm/php-wasm/PhpWeb.mjs').then(function(m){
-    var php=new m.PhpWeb();
-    php.addEventListener('output',function(e){PBUF+=[].concat(e.detail).join('')});
-    php.addEventListener('error',function(e){PBUF+=[].concat(e.detail).join('')});
-    return php;
+/*
+ * PHP 8.4 sungguhan (php-wasm) di Web Worker. Worker dipakai supaya perulangan tanpa akhir
+ * tidak membekukan HP: kalau program lebih dari 5 detik, worker dimatikan lalu dibuat ulang.
+ * php-wasm versi web menyentuh window/document saat dimuat, jadi keduanya diberi pengganti kosong.
+ */
+var PHP_SRC="self.window=self;self.document={getElementById:function(){return null},querySelector:function(){return null},addEventListener:function(){},removeEventListener:function(){}};"+
+"import('https://cdn.jsdelivr.net/npm/php-wasm@0.2.0/PhpWeb.mjs').then(async function(m){"+
+"var php=new m.PhpWeb(),out='';"+
+"php.addEventListener('output',function(e){out+=[].concat(e.detail).join('')});"+
+"php.addEventListener('error',function(e){out+=[].concat(e.detail).join('')});"+
+"await php.binary;"+
+"onmessage=async function(e){out='';try{await php.refresh();await php.run(e.data)}catch(x){out+='\\n'+x.message}postMessage({out:out})};"+
+"postMessage({ready:1})"+
+"},function(e){postMessage({fail:String(e)})})";
+var PHPW=null,PHPQ=Promise.resolve();
+function phpWorker(){
+  if(PHPW)return PHPW;
+  PHPW=new Promise(function(ok,no){
+    var w=new Worker(URL.createObjectURL(new Blob([PHP_SRC],{type:'text/javascript'})),{type:'module'});
+    w.onmessage=function(e){
+      if(e.data.ready)ok(w);
+      else if(e.data.fail)no(new Error(e.data.fail));
+      else if(w.job)w.job(e.data.out);
+    };
+    w.onerror=function(e){no(new Error(e.message||'PHP gagal dimuat'))};
   });
-  return PHPP;
+  PHPW.catch(function(){PHPW=null});
+  return PHPW;
+}
+function runPhp(code){
+  if(/\breadline\s*\(|\bSTDIN\b/.test(code))return Promise.reject(new Error('Di sini program belum bisa membaca ketikan keyboard (readline atau STDIN). Isi nilainya langsung di variabel, misalnya $omzet = 12000000;'));
+  var job=PHPQ.then(function(){return phpWorker()}).then(function(w){
+    return new Promise(function(ok,no){
+      var t=setTimeout(function(){w.terminate();PHPW=null;no(new Error('Program dihentikan setelah 5 detik. Biasanya karena perulangan yang tidak pernah berhenti, misalnya lupa menulis $i++.'))},5000);
+      w.job=function(out){clearTimeout(t);w.job=null;ok(out)};
+      w.postMessage(code);
+    });
+  });
+  PHPQ=job.catch(function(){});
+  return job;
 }
 var PX={
 kat:{n:'Latihan PHP: kategoriUsaha',h:'Pakai if dan return. Contoh: if ($omzetJuta <= 2000) return "Mikro";',
@@ -1420,35 +1499,51 @@ PX.anu={n:'Latihan PHP: cicilanAnuitas',h:'i = $bunga / 12 / 100. Rumus: $pokok 
 PX.aks={n:'Latihan PHP: bolehAksi',h:'staff hanya boleh pada status submitted dan approved, manager hanya pada verified. Role lain: tidak.',
  code:'<?php\n// kembalikan "ya" atau "tidak"\n// staff: boleh jika status submitted atau approved\n// manager: boleh jika status verified\n// role lain: tidak\nfunction bolehAksi($role, $status)\n{\n    // tulis kode kamu di sini\n}\n',
  tests:[['bolehAksi("staff","submitted")','ya'],['bolehAksi("staff","verified")','tidak'],['bolehAksi("staff","approved")','ya'],['bolehAksi("manager","verified")','ya'],['bolehAksi("manager","submitted")','tidak'],['bolehAksi("umkm","submitted")','tidak']]};
-function mkPhp(el){
-  var T=PX[el.dataset.p];
-  el.innerHTML='<div class="tmh"><b>'+T.n+'</b><button type="button" class="hint">Petunjuk</button><button type="button" class="rs">Ulang</button><button type="button" class="go">Jalankan</button></div><textarea spellcheck="false" autocapitalize="off" aria-label="Tulis kode PHP di sini"></textarea><div class="out" aria-live="polite">Tulis kodenya, lalu tekan Jalankan. Hasil tes otomatis muncul di sini.</div>';
-  var ta=el.querySelector('textarea'),out=el.querySelector('.out');
+PX.flt={n:'Latihan PHP: kodeByStatus',h:'Siapkan $hasil = []; lalu foreach ($data as $p). Kalau $p[\'status\'] === $status, tambahkan dengan $hasil[] = $p[\'kode\']; Terakhir return $hasil;',
+ code:'<?php\n$pengajuan = [\n    [\'kode\' => \'MDL-001\', \'status\' => \'verified\'],\n    [\'kode\' => \'MDL-002\', \'status\' => \'submitted\'],\n    [\'kode\' => \'MDL-003\', \'status\' => \'submitted\'],\n];\n\n// kembalikan array berisi KODE pengajuan yang statusnya sama dengan $status\nfunction kodeByStatus(array $data, string $status): array\n{\n    // tulis kode kamu di sini\n}\n',
+ tests:[['implode(",", kodeByStatus($pengajuan, "submitted"))','MDL-002,MDL-003'],['implode(",", kodeByStatus($pengajuan, "verified"))','MDL-001'],['count(kodeByStatus($pengajuan, "rejected"))','0']]};
+PX.res={n:'Latihan PHP: class Usaha dan toArray',h:'plafon(): return $this->omzet * 3; toArray(): return [\'nama\' => $this->nama, \'omzet\' => $this->omzet, \'plafon\' => $this->plafon()];',
+ code:'<?php\n// toArray() mirip API Resource di Laravel: menentukan bentuk JSON yang dikirim.\nclass Usaha\n{\n    public function __construct(public string $nama, public int $omzet)\n    {\n    }\n\n    // 3 x omzet\n    public function plafon(): int\n    {\n        // tulis kode kamu di sini\n    }\n\n    // kunci: nama, omzet, plafon\n    public function toArray(): array\n    {\n        // tulis kode kamu di sini\n    }\n}\n',
+ tests:[['(new Usaha("Kopi", 10000000))->plafon()','30000000'],['json_encode((new Usaha("Kopi", 10000000))->toArray())','{"nama":"Kopi","omzet":10000000,"plafon":30000000}']]};
+PX.fil={n:'Latihan PHP: $fillable seperti Laravel',h:'foreach ($data as $kolom => $nilai) { if (in_array($kolom, $this->fillable)) { $this->attributes[$kolom] = $nilai; } }',
+ code:'<?php\n// Cara kerja $fillable di Laravel: fill() hanya menyimpan kolom yang terdaftar.\n// Kolom lain (misalnya status atau role) diabaikan supaya tidak bisa diisi sembarangan.\nclass Model\n{\n    protected array $fillable = [];\n    public array $attributes = [];\n\n    public function fill(array $data): static\n    {\n        // tulis kode kamu di sini\n\n        return $this;\n    }\n}\n\nclass Pengajuan extends Model\n{\n    protected array $fillable = [\'jumlah\', \'tenor\'];\n}\n',
+ tests:[['json_encode((new Pengajuan)->fill(["jumlah" => 5000000, "tenor" => 12])->attributes)','{"jumlah":5000000,"tenor":12}'],['json_encode((new Pengajuan)->fill(["jumlah" => 5000000, "status" => "approved"])->attributes)','{"jumlah":5000000}'],['json_encode((new Pengajuan)->fill(["role" => "admin"])->attributes)','[]']]};
+PX.val={n:'Latihan PHP: validasi seperti Form Request',h:'Untuk jumlah: if (!isset($data[\'jumlah\'])) { $errors[\'jumlah\'] = \'jumlah wajib diisi\'; } elseif ($data[\'jumlah\'] < 5000000 || $data[\'jumlah\'] > 50000000) { ... }. Untuk tenor pakai in_array($data[\'tenor\'], [6, 12, 24]).',
+ code:'<?php\n// Aturan (sama seperti rules() di Form Request):\n// jumlah : wajib, 5000000 sampai 50000000\n// tenor  : wajib, hanya 6, 12, atau 24\n// Pesan error: "jumlah wajib diisi", "jumlah di luar batas", "tenor wajib diisi", "tenor tidak valid"\n// Contoh isi $errors: [\'jumlah\' => \'jumlah wajib diisi\']. Kalau semua benar, kembalikan array kosong.\nfunction validasi(array $data): array\n{\n    $errors = [];\n    // tulis kode kamu di sini\n\n    return $errors;\n}\n',
+ tests:[['json_encode(validasi(["jumlah" => 10000000, "tenor" => 12]))','[]'],['json_encode(validasi([]))','{"jumlah":"jumlah wajib diisi","tenor":"tenor wajib diisi"}'],['json_encode(validasi(["jumlah" => 1000, "tenor" => 12]))','{"jumlah":"jumlah di luar batas"}'],['json_encode(validasi(["jumlah" => 60000000, "tenor" => 7]))','{"jumlah":"jumlah di luar batas","tenor":"tenor tidak valid"}']]};
+/* Editor PHP. Tanpa T.tests, editor hanya menjalankan kode dan menampilkan hasilnya (dipakai tombol Coba). */
+function mkPhp(el,T){
+  T=T||PX[el.dataset.p];
+  var tries=0;
+  el.innerHTML='<div class="tmh"><b>'+esc(T.n)+'</b>'+(T.tests?'<button type="button" class="hint">Petunjuk</button>':'')+'<button type="button" class="rs">Ulang</button><button type="button" class="go">Jalankan</button></div><textarea spellcheck="false" autocapitalize="off" autocorrect="off" aria-label="Tulis kode PHP di sini"></textarea><div class="out" aria-live="polite">'+(T.tests?'Tulis kodenya, lalu tekan Jalankan. Hasil tes otomatis muncul di sini.':'Ubah kodenya sesukamu, lalu tekan Jalankan.')+'</div>';
+  var ta=el.querySelector('textarea'),out=el.querySelector('.out'),hint=el.querySelector('.hint');
   ta.value=T.code;
+  ta.rows=Math.min(24,Math.max(8,T.code.split('\n').length+1));
   ta.onkeydown=function(e){if(e.key==='Tab'){e.preventDefault();var s=ta.selectionStart;ta.value=ta.value.slice(0,s)+'    '+ta.value.slice(ta.selectionEnd);ta.selectionStart=ta.selectionEnd=s+4}};
   el.querySelector('.rs').onclick=function(){ta.value=T.code;out.textContent=''};
-  el.querySelector('.hint').onclick=function(){out.innerHTML='<div class="ok">Petunjuk: '+esc(T.h)+'</div>'};
+  if(hint)hint.onclick=function(){
+    out.innerHTML=tries?'<div class="ok">Petunjuk: '+esc(T.h)+'</div>':'<div class="ok">Coba jalankan kodemu sendiri dulu, walaupun belum yakin benar. Petunjuk terbuka setelah satu kali mencoba. Mengingat sendiri itu yang membuat ilmu menempel.</div>';
+  };
   el.querySelector('.go').onclick=function(){
+    tries++;
     out.textContent='Menjalankan... (pertama kali agak lama karena memuat PHP)';
-    var hid=T.tests.map(function(t){return 'echo "@@".('+t[0]+')."\\n";'}).join('\n');
-    loadPhp().then(function(php){
-      PBUF='';
-      return Promise.race([php.run(ta.value+'\n'+hid),new Promise(function(_,rj){setTimeout(function(){rj(new Error('Waktu habis. Mungkin ada perulangan tanpa akhir.'))},15000)})]);
-    }).then(function(){
-      var ls=PBUF.split('\n'),got=ls.filter(function(x){return x.indexOf('@@')===0}).map(function(x){return x.slice(2)}),
+    var hid=T.tests?T.tests.map(function(t){return 'echo "@@".('+t[0]+')."\\n";'}).join('\n'):'';
+    runPhp(ta.value+'\n'+hid).then(function(res){
+      var ls=res.split('\n'),got=ls.filter(function(x){return x.indexOf('@@')===0}).map(function(x){return x.slice(2)}),
           own=ls.filter(function(x){return x.indexOf('@@')!==0}).join('\n').trim(),h='',pass=0;
+      if(!T.tests){out.innerHTML=own?'<div>'+esc(own)+'</div>':'<div class="ok">Program selesai tanpa output. Tambahkan echo untuk menampilkan sesuatu.</div>';return}
       if(own)h+='<div>'+esc(own)+'</div>';
       if(!got.length)h+='<div class="er">Kodemu belum bisa jalan. Baca pesan error di atas, cek tanda kurung, titik koma, dan tanda $.</div>';
       else T.tests.forEach(function(t,i){
         var ok=got[i]===t[1];if(ok)pass++;
         h+='<div class="'+(ok?'ok':'er')+'">'+(ok?'✅ ':'❌ ')+esc(t[0])+' → '+esc(got[i]===undefined?'(kosong)':got[i])+(ok?'':' (seharusnya '+esc(t[1])+')')+'</div>';
       });
-      if(got.length&&pass===T.tests.length)h+='<div class="ok">Semua tes lulus. Mantap!</div>';
+      if(got.length&&pass===T.tests.length)h+='<div class="ok">Semua tes lulus'+(tries===1?' pada percobaan pertama':' setelah '+tries+' kali mencoba')+'. Mantap! Besok coba tekan Ulang dan tulis lagi dari ingatan.</div>';
       out.innerHTML=h;
-    }).catch(function(e){out.innerHTML='<div class="er">Gagal menjalankan PHP: '+esc(e.message||e)+'<br>Pastikan internet menyala, lalu muat ulang halaman. Kalau tetap gagal, coba di laptop dengan: php nama.php</div>'});
+    }).catch(function(e){out.innerHTML='<div class="er">'+esc(e.message||e)+(/detik|keyboard/.test(e.message)?'':'<br>Pastikan internet menyala, lalu muat ulang halaman.')+'</div>'});
   };
 }
-[].slice.call(document.querySelectorAll('.pe')).forEach(mkPhp);
+[].slice.call(document.querySelectorAll('.pe')).forEach(function(el){mkPhp(el)});
 [].slice.call(document.querySelectorAll('.term')).forEach(mkTerm);
 
 [].slice.call(document.querySelectorAll('pre')).forEach(function(p){
@@ -1459,7 +1554,148 @@ function mkPhp(el){
     setTimeout(function(){b.textContent='Salin'},1500);
   };
   p.appendChild(b);
+  // Contoh PHP lengkap bisa langsung dijalankan dan diubah di bawahnya
+  var src=p.querySelector('code').textContent;
+  if(src.indexOf('<?php')!==0)return;
+  var c=document.createElement('button'),ed=null;c.className='cp try-it';c.textContent='Coba';
+  c.onclick=function(){
+    if(ed){ed.remove();ed=null;c.textContent='Coba';return}
+    ed=document.createElement('div');ed.className='pe';
+    mkPhp(ed,{n:'Coba sendiri',code:src});
+    p.insertAdjacentElement('afterend',ed);c.textContent='Tutup';
+    ed.querySelector('textarea').focus({preventScroll:true});
+  };
+  p.appendChild(c);
 });
+
+/*
+ * Latihan harian (spaced repetition). Soal dijawab dengan mengetik dari ingatan.
+ * Benar: muncul lagi setelah 2, 4, 8, lalu 16 hari. Salah: muncul lagi besok.
+ * Kartu: [id, modul, soal, jawaban yang diterima (pertama = yang ditampilkan), catatan]
+ */
+var DR=[
+['g1',1,'Lihat file apa saja yang berubah dan belum di-commit',['git status']],
+['g2',1,'Pilih SEMUA file yang berubah untuk disimpan (staging)',['git add .','git add -A','git add --all']],
+['g3',1,'Simpan perubahan dengan catatan: Tambah tabel usaha',['git commit -m "Tambah tabel usaha"']],
+['g4',1,'Tampilkan riwayat commit, satu baris per commit',['git log --oneline']],
+['g5',1,'Ubah folder yang sedang dibuka menjadi repository Git',['git init']],
+['g6',1,'Hubungkan ke GitHub dengan nama origin, alamatnya git@github.com:budi/latihan-lks.git',['git remote add origin git@github.com:budi/latihan-lks.git']],
+['g7',1,'Kirim commit ke GitHub (branch main) untuk pertama kali, sekaligus jadikan tujuan bawaan',['git push -u origin main'],'-u membuat push berikutnya cukup ditulis git push.'],
+['g8',1,'Uji apakah SSH key-mu sudah dikenali GitHub',['ssh -T git@github.com']],
+['s1',2,'Tampilkan semua data tabel usaha',['SELECT * FROM usaha;']],
+['s2',2,'Tampilkan nama usaha yang sektornya Kuliner',["SELECT nama FROM usaha WHERE sektor = 'Kuliner';"]],
+['s3',2,'Ubah omzet_bulanan usaha dengan id 1 menjadi 15000000',['UPDATE usaha SET omzet_bulanan = 15000000 WHERE id = 1;'],'Jangan lupa WHERE. Tanpa WHERE, semua baris ikut berubah.'],
+['s4',2,'Hapus usaha dengan id 3',['DELETE FROM usaha WHERE id = 3;']],
+['s5',2,'Hitung jumlah pengajuan untuk tiap status',['SELECT status, COUNT(*) FROM pengajuan GROUP BY status;']],
+['s6',2,'Urutkan semua usaha dari omzet_bulanan terbesar',['SELECT * FROM usaha ORDER BY omzet_bulanan DESC;']],
+['s7',2,'Tipe kolom MySQL untuk uang yang bisa sampai puluhan miliar',['BIGINT'],'INT hanya sampai sekitar 2,1 miliar.'],
+['s8',2,'Definisi kolom id di MySQL: bilangan bulat, nomornya naik sendiri, penanda unik',['id INT AUTO_INCREMENT PRIMARY KEY']],
+['p1',3,'Buat variabel omzet berisi 12000000',['$omzet = 12000000;']],
+['p2',3,'Tanda untuk menyambung dua teks di PHP',['.','titik'],'Contoh: \'Rp\' . $angka. Tanda + hanya untuk angka.'],
+['p3',3,'Baris pembuka fungsi rupiah yang menerima int $angka dan mengembalikan string',['function rupiah(int $angka): string']],
+['p4',3,'Baris pembuka perulangan untuk setiap isi array $pengajuan, tiap isinya dinamai $p',['foreach ($pengajuan as $p)']],
+['p5',3,'Ambil nilai kode dari array asosiatif $p',["$p['kode']"]],
+['p6',3,'Jumlahkan semua nilai kolom jumlah dari array $pengajuan dalam satu baris',["array_sum(array_column($pengajuan, 'jumlah'))"]],
+['p7',3,'Operator pembanding yang juga memeriksa tipe datanya',['===']],
+['o1',4,'Buat object baru dari class Pengajuan dengan jumlah 12000000 dan tenor 12, simpan di $p',['$p = new Pengajuan(12000000, 12);']],
+['o2',4,'Di dalam method, cara mengambil property jumlah milik object itu sendiri',['$this->jumlah']],
+['o3',4,'Perintah Artisan: buat model Pengajuan sekaligus migration-nya',['php artisan make:model Pengajuan -m','php artisan make:model Pengajuan --migration']],
+['o4',4,'Perintah Artisan untuk menyiapkan routes/api.php dan Sanctum',['php artisan install:api']],
+['o5',4,'Perintah Artisan untuk menjalankan semua migration',['php artisan migrate']],
+['o6',4,'Di migration: kolom foreign key usaha_id yang terhubung ke tabel usahas',["$table->foreignId('usaha_id')->constrained();"]],
+['o7',4,'Di migration: buat kolom created_at dan updated_at sekaligus',['$table->timestamps();']],
+['o8',4,'Nama property di model berisi daftar kolom yang boleh diisi lewat create()',['$fillable','protected $fillable','fillable'],'Kalau lupa, muncul MassAssignmentException.'],
+['o9',4,'Baris di file .env supaya Laravel memakai MySQL',['DB_CONNECTION=mysql']],
+['r1',5,'Satu baris route yang membuat 5 rute CRUD untuk PengajuanController, alamatnya pengajuan',["Route::apiResource('pengajuan', PengajuanController::class);"]],
+['r2',5,'Kode status HTTP saat data berhasil dibuat',['201']],
+['r3',5,'Kode status HTTP saat validasi gagal',['422']],
+['r4',5,'Kode status HTTP saat belum login atau token salah',['401']],
+['r5',5,'Kode status HTTP saat sudah login tapi tidak berhak',['403']],
+['r6',5,'Kode status HTTP saat data tidak ditemukan',['404']],
+['r7',5,'Aturan validasi: jumlah wajib, bilangan bulat, minimal 5000000 (tulis isi string-nya saja)',['required|integer|min:5000000']],
+['r8',5,'Aturan validasi: tenor hanya boleh 6, 12, atau 24',['in:6,12,24']],
+['r9',5,'Perintah Artisan: buat Form Request bernama StorePengajuanRequest',['php artisan make:request StorePengajuanRequest']],
+['r10',5,'Di controller: simpan data yang lolos validasi ke model Pengajuan, hasilnya di $p',['$p = Pengajuan::create($request->validated());']],
+['r11',5,"Di controller: kembalikan JSON ['success' => true] dengan status 201",["return response()->json(['success' => true], 201);"]],
+['k1',6,'Nama middleware supaya route hanya bisa dibuka dengan token Sanctum',['auth:sanctum']],
+['k2',6,'Nama middleware untuk batas 5 percobaan per 1 menit',['throttle:5,1']],
+['k3',6,'Kode status HTTP saat terlalu banyak percobaan',['429']],
+['k4',6,'Buat token untuk $user lalu ambil teks token-nya',["$user->createToken('api')->plainTextToken"]],
+['k5',6,'Cek apakah password dari request cocok dengan hash milik $user',['Hash::check($request->password, $user->password)']],
+['k6',6,'Di controller: cek izin verify dari policy untuk $pengajuan',["$this->authorize('verify', $pengajuan);"],'Kalau tidak boleh, Laravel otomatis membalas 403.'],
+['k7',6,'Hapus token yang sedang dipakai (logout)',['$request->user()->currentAccessToken()->delete();']],
+['d1',7,'Di migration: kolom id berupa UUID sebagai primary key',["$table->uuid('id')->primary();"]],
+['d2',7,'Di migration: tambahkan kolom untuk soft delete',['$table->softDeletes();']],
+['d3',7,'Ambil semua pengajuan, termasuk yang sudah dihapus dengan soft delete',['Pengajuan::withTrashed()->get();']],
+['d4',7,'Isi method relasi di model Usaha: satu usaha punya banyak Pengajuan',['return $this->hasMany(Pengajuan::class);']],
+['d5',7,'Isi method relasi di model Pengajuan: milik satu Usaha',['return $this->belongsTo(Usaha::class);']],
+['d6',7,'Daftarkan PengajuanObserver ke model Pengajuan',['Pengajuan::observe(PengajuanObserver::class);']],
+['b1',8,'Ubah status $pengajuan menjadi verified',["$pengajuan->update(['status' => 'verified']);"]],
+['b2',8,'Kondisi if: jumlah dari request lebih besar dari 3 kali omzet_bulanan milik $usaha',['$request->jumlah > $usaha->omzet_bulanan * 3']],
+['b3',8,'Role yang memverifikasi pengajuan berstatus submitted',['staff']],
+['b4',8,'Role yang menyetujui pengajuan berstatus verified',['manager']]
+];
+(function(){
+  var box=document.getElementById('dr');if(!box)return;
+  var GAP=[0,1,2,4,8,16],KEY='lks-ulang',st={lv:1,c:{},last:'',streak:0};
+  try{var sv=JSON.parse(localStorage.getItem(KEY)||'null');if(sv)st=sv}catch(e){}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}}
+  function day(add){var d=new Date();d.setDate(d.getDate()+(add||0));return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2)}
+  // Spasi, jenis tanda kutip, huruf besar, dan titik koma di akhir tidak dihitung salah
+  function norm(t){return String(t).toLowerCase().replace(/[“”"‘’`]/g,"'").replace(/\s+/g,' ').trim().replace(/\s*([()\[\]{},;:=<>!|.*+\-\/])\s*/g,'$1').replace(/;+$/,'').replace(/^return /,'')}
+  var Q=[],cur=null,wrong={};
+  function build(){
+    var t=day(),open=DR.filter(function(c){return c[1]<=st.lv});
+    var due=open.filter(function(c){var s=st.c[c[0]];return s&&s.d<=t}).sort(function(a,b){return st.c[a[0]].d<st.c[b[0]].d?-1:1});
+    var fresh=open.filter(function(c){return !st.c[c[0]]}).slice(0,5);
+    Q=due.concat(fresh).slice(0,15);wrong={};
+  }
+  function stats(){
+    var open=DR.filter(function(c){return c[1]<=st.lv}),hafal=open.filter(function(c){var s=st.c[c[0]];return s&&s.b>=4}).length;
+    var streak=st.last===day()||st.last===day(-1)?st.streak:0;
+    return '<div class="dr-stats"><span><b>'+streak+'</b>hari beruntun</span><span><b>'+Q.length+'</b>soal tersisa</span><span><b>'+hafal+'/'+open.length+'</b>sudah hafal</span></div>';
+  }
+  function render(){
+    var opts='';for(var i=1;i<=8;i++)opts+='<option value="'+i+'"'+(i===st.lv?' selected':'')+'>Modul '+i+'</option>';
+    var h='<div class="dr-top"><label>Sudah belajar sampai <select aria-label="Modul terakhir yang sudah dipelajari">'+opts+'</select></label>'+stats()+'</div>';
+    cur=Q[0];
+    if(cur){
+      h+='<form class="dr-card"><small>Modul '+cur[1]+'</small><p class="q">'+esc(cur[2])+'</p>'+
+        '<input autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Jawabanmu" placeholder="Ketik jawabanmu">'+
+        '<div class="dr-acts"><button class="btn">Periksa</button><button type="button" class="btn ghost skip">Tidak ingat</button></div></form>';
+    }else{
+      var later=DR.filter(function(c){return c[1]<=st.lv&&st.c[c[0]]}).map(function(c){return st.c[c[0]].d}).sort()[0];
+      var left=DR.filter(function(c){return c[1]<=st.lv&&!st.c[c[0]]}).length;
+      h+='<div class="dr-card"><small>Selesai</small><p class="q">Latihan hari ini sudah habis. Sampai jumpa besok.</p>'+
+        '<p>'+(later?'Soal berikutnya muncul tanggal '+later.split('-').reverse().join('-')+'. ':'')+(left?'Masih ada '+left+' soal baru dari modul yang sudah kamu pelajari.':'Kalau sudah lanjut ke modul berikutnya, ganti pilihan "Sudah belajar sampai" di atas.')+'</p>'+
+        (left?'<div class="dr-acts"><button type="button" class="btn more">Tambah 5 soal baru</button></div>':'')+'</div>';
+    }
+    box.innerHTML=h;
+    box.querySelector('select').onchange=function(e){st.lv=+e.target.value;save();build();render()};
+    var more=box.querySelector('.more');
+    if(more)more.onclick=function(){Q=DR.filter(function(c){return c[1]<=st.lv&&!st.c[c[0]]}).slice(0,5);render()};
+    var f=box.querySelector('form');if(!f)return;
+    var inp=f.querySelector('input');
+    f.onsubmit=function(e){e.preventDefault();if(inp.value.trim())answer(inp.value)};
+    f.querySelector('.skip').onclick=function(){answer(null)};
+  }
+  function answer(v){
+    var c=cur,ok=v!==null&&c[3].some(function(a){return norm(a)===norm(v)}),s=st.c[c[0]];
+    if(ok){var b=wrong[c[0]]?1:Math.min((s?s.b:1)+1,5);st.c[c[0]]={b:b,d:day(GAP[b])}}
+    else{st.c[c[0]]={b:1,d:day(1)};if(!wrong[c[0]]){wrong[c[0]]=1;Q.push(c)}}
+    Q.shift();
+    if(!Q.length&&st.last!==day()){st.streak=st.last===day(-1)?st.streak+1:1;st.last=day()}
+    save();
+    var f=box.querySelector('form');
+    f.querySelector('input').readOnly=true;
+    f.querySelector('.dr-acts').innerHTML='<button class="btn">Lanjut</button>';
+    f.insertAdjacentHTML('beforeend','<div class="dr-res'+(ok?'':' er')+'" aria-live="polite"><b>'+(ok?'Benar.':(v===null?'Tidak apa-apa, ini jawabannya.':'Belum tepat.'))+'</b>'+
+      (ok&&norm(v)===norm(c[3][0])?'':'Jawaban: <code>'+esc(c[3][0])+'</code>')+(c[4]?' '+esc(c[4]):'')+(ok?'':' Soal ini muncul lagi di akhir latihan dan besok.')+'</div>');
+    f.onsubmit=function(e){e.preventDefault();render();var n=box.querySelector('.dr-card input');if(n)n.focus({preventScroll:true})};
+    f.querySelector('.dr-acts .btn').focus({preventScroll:true});
+  }
+  build();render();
+})();
 })();
 </script>
 <script>
