@@ -3,138 +3,301 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Belajar Backend untuk LKS</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧱</text></svg>">
+<title>Latihan LKS Backend</title>
+<meta name="theme-color" content="#f5f3ee">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2216%22 fill=%22%23161616%22/><text x=%2250%22 y=%2272%22 font-size=%2262%22 text-anchor=%22middle%22 fill=%22%23f5f3ee%22 font-family=%22serif%22>練</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Shippori+Mincho:wght@500;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f6f8fa;--card:#fff;--ink:#16202b;--mute:#5b6775;--line:#dbe2e9;--brand:#0f766e;--brand-ink:#fff;--note:#fff4d6;--code:#101a24;--ok:#1f9d55;--okbg:#dcf5e6;--bad:#d64545;--badbg:#fde3e3;--codeink:#e6edf3}
-@media(prefers-color-scheme:dark){:root{--bg:#0e151c;--card:#16202b;--ink:#e8eef4;--mute:#9aa8b6;--line:#2a3846;--brand:#2dd4bf;--brand-ink:#0e151c;--note:#3a3115;--code:#0a1016;--okbg:#12372a;--badbg:#42191c}}
+/*
+ * Tema "Sumi & Ai" (mengikuti desain Miravatech):
+ * tinta hitam (sumi) di atas kertas washi, dengan biru indigo (ai) sebagai aksen.
+ * Semua warna disimpan sebagai variabel supaya mode gelap cukup menimpa nilainya.
+ */
+:root{
+  --paper:#f5f3ee;--paper-deep:#ece9e2;--surface:#fbfaf7;--card:#fff;
+  --line:#dcd8cf;--line-strong:#bdb8ad;
+  --ink:#161616;--ink-soft:#2a2927;--mute:#57544e;--subtle:#6b6760;
+  --ai:#2c3a8f;--ai-deep:#1e2866;--ai-soft:#e4e6ef;--ai-light:#a3aee8;
+  --night:#141414;--night-2:#1c1b19;--night-text:#ecebe6;--night-line:#2e2d2a;--night-mute:#a19e96;
+  --note:#f7efd9;--note-line:#b8892c;
+  --ok:#2f7d4f;--okbg:#e2efe6;--bad:#b23a3a;--badbg:#f6e1df;
+  --sans:"Geist","Hiragino Sans","Yu Gothic",ui-sans-serif,system-ui,sans-serif;
+  --mono:"Geist Mono",ui-monospace,Consolas,monospace;
+  --mincho:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --r:6px;
+  color-scheme:light;
+}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0d0d0d;--paper-deep:#151515;--surface:#121212;--card:#161616;
+  --line:#262626;--line-strong:#333;--ink:#ededed;--ink-soft:#d6d6d6;--mute:#a3a3a3;--subtle:#8c8c8c;
+  --ai:#7f89f0;--ai-deep:#a3aee8;--ai-soft:#1d2150;--note:#2a2415;--note-line:#c9a14a;
+  --ok:#5fbf86;--okbg:#14301f;--bad:#ef7b7b;--badbg:#3a1717;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0d0d0d;--paper-deep:#151515;--surface:#121212;--card:#161616;
+  --line:#262626;--line-strong:#333;--ink:#ededed;--ink-soft:#d6d6d6;--mute:#a3a3a3;--subtle:#8c8c8c;
+  --ai:#7f89f0;--ai-deep:#a3aee8;--ai-soft:#1d2150;--note:#2a2415;--note-line:#c9a14a;
+  --ok:#5fbf86;--okbg:#14301f;--bad:#ef7b7b;--badbg:#3a1717;color-scheme:dark}
+
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-.wrap{display:flex;min-height:100vh}
-nav{width:260px;flex:none;border-right:1px solid var(--line);padding:20px 16px;position:sticky;top:0;height:100vh;overflow:auto;background:var(--card)}
-nav h1{font-size:18px;margin:0 0 4px}
-nav p{margin:0 0 16px;color:var(--mute);font-size:14px}
-nav a{display:block;padding:9px 10px;border-radius:8px;color:var(--ink);text-decoration:none;font-size:15px}
-nav a:hover{background:var(--bg)}
-nav a.on{background:var(--brand);color:var(--brand-ink);font-weight:600}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.75 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--ai)}
+::selection{background:var(--ai);color:#fff}
+
+/* ---------- Header atas ---------- */
+.top{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:16px;height:64px;padding:0 24px;
+  background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:12px;color:var(--ink);text-decoration:none;margin-right:auto}
+.brand .mk{display:grid;place-items:center;width:36px;height:36px;border-radius:var(--r);background:var(--ink);color:var(--paper);font:700 19px/1 var(--mincho)}
+.brand b{display:block;font-weight:600;font-size:16px;letter-spacing:-.01em;line-height:1.2}
+.brand small{display:block;font:500 10.5px/1.3 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--subtle)}
+.tprog{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--mute)}
+.tprog .bar{width:120px}
+.tprog b{font:500 13px var(--mono);color:var(--ink)}
+.ib{display:grid;place-items:center;width:38px;height:38px;border:1px solid var(--line-strong);background:transparent;color:var(--ink);border-radius:var(--r);cursor:pointer;font:inherit}
+.ib:hover{background:var(--paper-deep)}
+.ib svg{width:18px;height:18px}
+.menu{display:none}
+
+/* ---------- Tata letak ---------- */
+.wrap{display:flex;min-height:calc(100vh - 64px)}
+nav{width:280px;flex:none;border-right:1px solid var(--line);padding:24px 16px 40px;position:sticky;top:64px;height:calc(100vh - 64px);overflow:auto;background:var(--surface)}
+nav .cap{margin:0 10px 10px;font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--subtle)}
+nav a{position:relative;display:flex;align-items:center;gap:12px;padding:8px 10px;border-radius:var(--r);color:var(--ink-soft);text-decoration:none;font-size:14.5px;line-height:1.35;transition:background .2s}
+nav a i{flex:none;display:grid;place-items:center;width:28px;height:28px;border:1px solid var(--line);border-radius:4px;font:500 14px/1 var(--mincho);font-style:normal;color:var(--mute);background:var(--card);transition:all .3s var(--ease)}
+nav a:hover{background:var(--paper-deep)}
+nav a.on{background:var(--ink);color:var(--paper);font-weight:500}
+nav a.on i{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+nav a.done i{background:var(--ai);border-color:var(--ai);color:#fff}
 nav a.lock{color:var(--mute)}
-nav .sep{margin:14px 10px 4px;font-size:13px;color:var(--mute)}
-.bar{height:6px;background:var(--line);border-radius:3px;margin:0 0 14px;overflow:hidden}
-.bar i{display:block;height:100%;width:0;background:var(--brand);transition:width .3s}
-main{flex:1;min-width:0;max-width:820px;padding:28px 24px 80px;margin:0 auto}
-.mod{display:none}.mod.on{display:block}
-h2{font-size:28px;line-height:1.2;margin:0 0 6px}
-h3{font-size:20px;margin:34px 0 8px}
-.meta{color:var(--mute);margin:0 0 20px}
-p{margin:10px 0}
-code{background:var(--bg);border:1px solid var(--line);padding:1px 6px;border-radius:5px;font:14px ui-monospace,Consolas,monospace}
-pre{position:relative;background:var(--code);color:var(--codeink);padding:14px 16px;border-radius:10px;overflow-x:auto;font:14px/1.55 ui-monospace,Consolas,monospace;margin:12px 0}
+nav .sep{margin:18px 10px 8px;padding-top:14px;border-top:1px solid var(--line);font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--subtle)}
+.bar{height:3px;background:var(--line);border-radius:2px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--ai);transition:width .6s var(--ease)}
+main{flex:1;min-width:0;max-width:860px;padding:48px 40px 96px;margin:0 auto}
+.mod{display:none;scroll-margin-top:400px}.mod.on{display:block;animation:rise .7s var(--ease) both}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}}
+@media(prefers-reduced-motion:reduce){.mod.on{animation:none}html{scroll-behavior:auto}}
+
+/* ---------- Tipografi ---------- */
+.eyebrow{display:flex;align-items:center;gap:14px;margin:0 0 18px;font:500 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.eyebrow:before{content:"";width:32px;height:1px;background:var(--ai)}
+.eyebrow span{font:500 15px var(--mincho);letter-spacing:.1em;color:var(--ai);text-transform:none}
+h2{font-size:clamp(32px,5vw,48px);line-height:1.08;font-weight:300;letter-spacing:-.035em;margin:0 0 14px}
+h2 .dot{color:var(--ai)}
+h3{position:relative;font-size:21px;font-weight:500;letter-spacing:-.015em;line-height:1.3;margin:52px 0 10px;padding-top:22px;border-top:1px solid var(--line)}
+h3 .n{display:inline-block;min-width:34px;font:500 12px var(--mono);color:var(--ai);vertical-align:3px}
+.meta{color:var(--mute);margin:0 0 8px;font-size:17px;max-width:640px}
+.facts{display:flex;flex-wrap:wrap;gap:8px 22px;margin:20px 0 0;padding:14px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--line);font-size:13px;color:var(--mute)}
+.facts b{color:var(--ink);font-weight:500}
+p{margin:12px 0}
+b,strong{font-weight:600}
+ul,ol{padding-left:22px}li{margin:4px 0}
+code{background:var(--paper-deep);border:1px solid var(--line);padding:1px 6px;border-radius:4px;font:13.5px var(--mono);color:var(--ink)}
+pre{position:relative;background:var(--night);color:var(--night-text);padding:18px 20px;border-radius:var(--r);overflow-x:auto;font:13.5px/1.7 var(--mono);margin:16px 0;border:1px solid var(--night-line)}
 pre code{background:none;border:0;padding:0;color:inherit}
-.cp{position:absolute;top:8px;right:8px;font:12px system-ui;background:#ffffff22;color:#fff;border:0;border-radius:6px;padding:3px 8px;cursor:pointer}
-.box{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:14px 0}
-.note{background:var(--note);border-left:4px solid #e0a100;border-radius:6px;padding:10px 14px;margin:14px 0}
-.try{border-left:4px solid var(--brand);background:var(--card);border-radius:6px;padding:10px 14px;margin:14px 0}
-details{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 14px;margin:10px 0}
-summary{cursor:pointer;font-weight:600;color:var(--brand)}
-label.ck{display:flex;gap:10px;align-items:flex-start;padding:5px 0;cursor:pointer}
-label.ck input{margin-top:6px;width:18px;height:18px;accent-color:var(--brand)}
-table{border-collapse:collapse;width:100%;font-size:15px;display:block;overflow-x:auto}
-th,td{border:1px solid var(--line);padding:6px 10px;text-align:left}
-th{background:var(--card)}
-.steps{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));margin:16px 0}
-.steps div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px}
-.steps b{display:block;color:var(--brand)}
-.btn{display:inline-block;background:var(--brand);color:var(--brand-ink);padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:600;margin-top:8px}
-.qz{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:12px 0}
-.qz p{margin:0 0 10px;font-weight:600}
-.opt{display:block;width:100%;text-align:left;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px 12px;margin:6px 0;cursor:pointer}
-.opt:hover:not(:disabled){border-color:var(--brand)}
+.cp{position:absolute;top:10px;right:10px;font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;background:transparent;color:var(--night-mute);border:1px solid var(--night-line);border-radius:4px;padding:4px 9px;cursor:pointer}
+.cp:hover{color:#fff;border-color:var(--night-mute)}
+
+/* ---------- Kotak & catatan ---------- */
+.box{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 20px;margin:16px 0}
+.note{position:relative;background:var(--note);border:1px solid color-mix(in srgb,var(--note-line) 35%,transparent);border-left:3px solid var(--note-line);border-radius:var(--r);padding:12px 16px;margin:18px 0}
+.try{background:var(--ai-soft);border:1px solid color-mix(in srgb,var(--ai) 25%,transparent);border-left:3px solid var(--ai);border-radius:var(--r);padding:12px 16px;margin:18px 0}
+.try>b:first-child,.note>b:first-child{display:block;font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;margin-bottom:2px}
+.try>b:first-child{color:var(--ai)}
+details{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:0 18px;margin:12px 0}
+details[open]{padding-bottom:6px}
+summary{cursor:pointer;font-weight:500;padding:12px 0;list-style:none;display:flex;justify-content:space-between;gap:10px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";font:300 22px/1 var(--sans);color:var(--ai);transition:transform .3s var(--ease)}
+details[open] summary:after{transform:rotate(45deg)}
+label.ck{display:flex;gap:12px;align-items:flex-start;padding:10px 12px;margin:6px 0;cursor:pointer;background:var(--card);border:1px solid var(--line);border-radius:var(--r);transition:border-color .2s}
+label.ck:hover{border-color:var(--line-strong)}
+label.ck input{flex:none;margin-top:5px;width:18px;height:18px;accent-color:var(--ai)}
+label.ck:has(input:checked){border-color:var(--ai);background:var(--ai-soft)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;display:block;overflow-x:auto;margin:14px 0}
+th,td{border-bottom:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+th{font:500 11.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);border-bottom:1px solid var(--ink)}
+.steps{display:grid;gap:0;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin:18px 0;border-top:1px solid var(--ink)}
+.steps div{padding:16px 16px 18px 0;border-bottom:1px solid var(--line);font-size:15px;color:var(--mute)}
+.steps b{display:block;color:var(--ink);font-weight:500;font-size:16px;margin-bottom:4px}
+.steps b em{display:block;font:500 22px var(--mincho);font-style:normal;color:var(--ai);margin-bottom:6px}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--paper);padding:12px 22px;border-radius:var(--r);text-decoration:none;font-weight:500;font-size:15px;margin-top:10px;border:1px solid var(--ink);cursor:pointer;transition:background .2s,transform .2s var(--ease)}
+.btn:hover{background:var(--ai);border-color:var(--ai);color:#fff}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line-strong)}
+.btn.ghost:hover{border-color:var(--ink);background:transparent;color:var(--ink)}
+
+.timer{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:var(--night);border-color:var(--night-line);color:var(--night-text)}
+.timer small{display:block;font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--night-mute)}
+.timer b{font:300 40px/1.1 var(--mono);letter-spacing:-.02em}
+.timer .btn{margin:0;background:var(--paper);color:var(--ink);border-color:var(--paper)}
+
+/* ---------- Kuis ---------- */
+.quiz{margin-top:40px}
+.qz{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;margin:12px 0}
+.qz p{margin:0 0 12px;font-weight:500}
+.opt{display:block;width:100%;text-align:left;font:inherit;font-size:15px;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:10px 14px;margin:6px 0;cursor:pointer;transition:border-color .2s}
+.opt:hover:not(:disabled){border-color:var(--ai)}
 .opt:disabled{cursor:default;opacity:1}
 .opt.ok{background:var(--okbg);border-color:var(--ok)}
 .opt.bad{background:var(--badbg);border-color:var(--bad)}
-.ex{margin-top:8px;color:var(--mute);font-size:15px}
-.score{font-weight:700;color:var(--brand)}
-.re{font:inherit;background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:6px 12px;cursor:pointer;margin-left:10px}
-.g{text-decoration:underline dotted var(--brand);text-underline-offset:3px;cursor:help}
-#gl{position:fixed;left:12px;right:12px;bottom:12px;max-width:560px;margin:0 auto;background:var(--code);color:var(--codeink);border-radius:12px;padding:14px 16px;box-shadow:0 8px 30px #0006;z-index:20;font-size:15px}
-#gl b{display:block;color:#5eead4;margin-bottom:2px}
-#ks{width:100%;font:inherit;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink);margin:6px 0}
-.term{background:#0b1118;color:#d6e2ee;border-radius:12px;margin:14px 0;overflow:hidden;font:14px/1.5 ui-monospace,Consolas,monospace}
-.tmh{display:flex;gap:8px;align-items:center;padding:8px 12px;background:#16212c}
-.tmh b{flex:1;font:600 14px system-ui}
-.tmh button{font:13px system-ui;background:#ffffff1c;color:#fff;border:0;border-radius:6px;padding:4px 10px;cursor:pointer}
-.ms{margin:0;padding:10px 14px;font:14px/1.45 system-ui;border-bottom:1px solid #243342}
+.ex{margin-top:10px;color:var(--mute);font-size:15px}
+.score{font:500 13px var(--mono);color:var(--ai);margin-left:6px}
+.re{font:inherit;font-size:13px;background:none;border:1px solid var(--line-strong);color:var(--ink);border-radius:var(--r);padding:5px 12px;cursor:pointer;margin-left:10px}
+
+/* ---------- Kamus & popup istilah ---------- */
+.g{text-decoration:underline dotted var(--ai);text-underline-offset:4px;cursor:help}
+#gl{position:fixed;left:12px;right:12px;bottom:16px;max-width:560px;margin:0 auto;background:var(--night);color:var(--night-text);border:1px solid var(--night-line);border-radius:var(--r);padding:14px 18px;box-shadow:0 12px 40px #0005;z-index:40;font-size:15px}
+#gl b{display:block;color:var(--ai-light);font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+#ks{width:100%;font:inherit;padding:12px 14px;border:1px solid var(--line-strong);border-radius:var(--r);background:var(--card);color:var(--ink);margin:10px 0}
+
+/* ---------- Terminal & editor simulasi ---------- */
+.term,.pe{background:var(--night);color:var(--night-text);border:1px solid var(--night-line);border-radius:var(--r);margin:18px 0;overflow:hidden;font:13.5px/1.6 var(--mono)}
+.tmh{display:flex;gap:8px;align-items:center;padding:10px 14px;background:var(--night-2);border-bottom:1px solid var(--night-line)}
+.tmh:before{content:"";width:9px;height:9px;border-radius:50%;background:#d53b3a;box-shadow:15px 0 #d9a33a,30px 0 #4f9a5d;margin-right:34px;flex:none}
+.tmh b{flex:1;font:500 13px var(--sans);color:var(--night-text)}
+.tmh button{font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;background:transparent;color:var(--night-mute);border:1px solid var(--night-line);border-radius:4px;padding:4px 10px;cursor:pointer}
+.tmh button:hover{color:#fff;border-color:var(--night-mute)}
+.ms{margin:0;padding:12px 16px;font:14px/1.5 var(--sans);border-bottom:1px solid var(--night-line)}
 .ms li{list-style:none;padding:3px 0}
-.ms li:before{content:"⬜ "}
-.ms li.d{color:#8aa0b4;text-decoration:line-through}
-.ms li.d:before{content:"✅ "}
-.out{padding:10px 14px;max-height:340px;overflow:auto;white-space:pre-wrap;word-break:break-word}
-.out .c{color:#5eead4}
-.out .er{color:#ff8b8b}
-.out .ok{color:#7ee787}
-.out table{font-size:13px;margin:4px 0;color:#d6e2ee}
-.out th,.out td{border:1px solid #2c3d4e;padding:3px 8px;background:none}
-.tin{display:flex;gap:6px;padding:8px 14px 12px;border-top:1px solid #243342}
-.tin .pr{color:#5eead4;white-space:nowrap;padding-top:2px}
-.tin input{flex:1;min-width:0;background:none;border:0;color:#fff;font:16px ui-monospace,Consolas,monospace;outline:none}
-.pe{background:#0b1118;color:#d6e2ee;border-radius:12px;margin:14px 0;overflow:hidden;font:14px/1.5 ui-monospace,Consolas,monospace}
-.pe textarea{display:block;width:100%;min-height:190px;background:#0f1822;color:#e6edf3;border:0;padding:12px 14px;font:14px/1.5 ui-monospace,Consolas,monospace;resize:vertical;outline:none;tab-size:4}
-.menu{display:none}
-a:focus-visible,summary:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--brand);outline-offset:2px}
-@media(max-width:820px){
-.wrap{display:block}
-nav{position:static;width:auto;height:auto;border-right:0;border-bottom:1px solid var(--line)}
-nav .list{display:none}nav.open .list{display:block}
-.menu{display:block;margin-top:8px;background:var(--bg);border:1px solid var(--line);color:var(--ink);padding:8px 12px;border-radius:8px;width:100%;font:inherit}
-main{padding:20px 16px 70px}h2{font-size:24px}}
+.ms li:before{content:"○  ";color:var(--night-mute)}
+.ms li.d{color:var(--night-mute);text-decoration:line-through}
+.ms li.d:before{content:"●  ";color:var(--ai-light)}
+.out{padding:12px 16px;max-height:340px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.out .c{color:var(--ai-light)}
+.out .er{color:#f08a8a}
+.out .ok{color:#8fd19e}
+.out table{font-size:12.5px;margin:4px 0;color:var(--night-text);display:table;width:auto}
+.out th,.out td{border:1px solid var(--night-line);padding:3px 8px;background:none;color:inherit;font:inherit;text-transform:none;letter-spacing:0}
+.tin{display:flex;gap:8px;padding:10px 16px 14px;border-top:1px solid var(--night-line)}
+.tin .pr{color:var(--ai-light);white-space:nowrap;padding-top:1px}
+.tin input{flex:1;min-width:0;background:none;border:0;color:#fff;font:16px var(--mono);outline:none}
+.pe textarea{display:block;width:100%;min-height:200px;background:var(--night);color:var(--night-text);border:0;padding:14px 16px;font:13.5px/1.6 var(--mono);resize:vertical;outline:none;tab-size:4}
+
+/* ---------- Tambahan untuk pemula: isi modul & navigasi ---------- */
+.toc{margin:28px 0 8px;padding:18px 20px;background:var(--card);border:1px solid var(--line);border-radius:var(--r)}
+.toc>b{display:block;font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--subtle);margin-bottom:8px}
+.toc ol{margin:0;padding:0;list-style:none;columns:2;column-gap:28px}
+.toc li{break-inside:avoid;margin:0}
+.toc button{display:flex;gap:10px;width:100%;text-align:left;background:none;border:0;padding:5px 0;font:inherit;font-size:14.5px;color:var(--ink-soft);cursor:pointer}
+.toc button span{font:500 12px/2 var(--mono);color:var(--ai);flex:none;min-width:22px}
+.toc button:hover{color:var(--ai)}
+.pager{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:56px 0 0;padding-top:24px;border-top:1px solid var(--ink)}
+.pager a{display:block;padding:16px 18px;border:1px solid var(--line);border-radius:var(--r);text-decoration:none;color:var(--ink);background:var(--card);transition:border-color .2s}
+.pager a:hover{border-color:var(--ai)}
+.pager small{display:block;font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--subtle);margin-bottom:2px}
+.pager .nx{text-align:right;grid-column:2}
+
+/* ---------- Halaman awal (hero) ---------- */
+.hero{position:relative;margin:-8px 0 40px}
+.hero h2{font-size:clamp(40px,7vw,72px);line-height:1.02;letter-spacing:-.045em;margin:0 0 28px}
+.hero h2 em{font-style:normal;color:var(--ai)}
+.hero .lead{font-size:17px;color:var(--mute);max-width:560px;margin:0}
+.hero .tate{position:absolute;right:0;top:4px;writing-mode:vertical-rl;text-orientation:upright;font:500 14px var(--mincho);letter-spacing:.35em;color:var(--subtle)}
+.hero-row{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;margin-top:28px;padding-top:22px;border-top:1px solid var(--ink)}
+.hero-row dl{margin:0;display:grid;gap:6px;font-size:13.5px}
+.hero-row dl div{display:flex;gap:16px}
+.hero-row dt{width:64px;flex:none;color:var(--subtle)}
+.hero-row dd{margin:0}
+.hero-row .acts{display:flex;gap:10px;flex-wrap:wrap}
+.hero-row .btn{margin:0}
+.path{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:16px 0;border-top:1px solid var(--ink)}
+.path a{display:block;padding:18px 18px 20px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.path a i{display:block;font:500 26px var(--mincho);font-style:normal;color:var(--ai);margin-bottom:6px}
+.path a small{display:block;font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--subtle)}
+.path a b{display:block;font-weight:500;margin:2px 0}
+.path a span{display:block;font-size:14px;color:var(--mute);line-height:1.5}
+.path a:hover b{color:var(--ai)}
+
+a:focus-visible,summary:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--ai);outline-offset:2px}
+
+@media(max-width:900px){
+  .top{padding:0 16px;gap:10px}
+  .menu{display:grid}
+  .tprog .bar,.tprog span{display:none}
+  nav{position:fixed;left:0;top:64px;bottom:0;height:auto;z-index:25;transform:translateX(-102%);transition:transform .4s var(--ease);box-shadow:0 0 0 100vmax transparent}
+  nav.open{transform:none;box-shadow:0 0 0 100vmax #0006}
+  main{padding:32px 16px 72px}
+  .toc ol{columns:1}
+  .path{grid-template-columns:1fr}
+  .hero .tate{display:none}
+  .hero-row{grid-template-columns:1fr}
+  .brand small{display:none}
+}
+@media(max-width:480px){.pager{grid-template-columns:1fr}.pager .nx{grid-column:1}}
 </style>
 </head>
 <body>
+<header class="top">
+<button class="ib menu" id="menu" aria-label="Buka daftar modul" aria-controls="nav" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 12h16M4 17h10"/></svg></button>
+<a class="brand" href="#home"><span class="mk" lang="ja">練</span><span><b>Latihan LKS</b><small>Backend · Laravel · れんしゅう</small></span></a>
+<div class="tprog" title="Persentase checklist yang sudah kamu centang"><span>Progres</span><div class="bar"><i id="pb"></i></div><b id="pct">0%</b></div>
+<button class="ib" id="theme" aria-label="Ganti tema terang/gelap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg></button>
+</header>
 <div class="wrap">
-<nav id="nav">
-<h1>Belajar Backend LKS</h1>
-<p>Backend untuk LKS Web Technologies</p>
-<div class="bar"><i id="pb"></i></div>
-<button class="menu" onclick="document.getElementById('nav').classList.toggle('open')">Daftar modul</button>
+<nav id="nav" aria-label="Daftar modul">
+<p class="cap">Daftar modul</p>
 <div class="list">
-<a href="#home">Mulai di sini</a>
-<a href="#m1">1. Git dan GitHub</a>
-<a href="#m2">2. MySQL dan SQL</a>
-<a href="#m3">3. Rekap PHP</a>
-<a href="#m4">4. PHP OOP dan Laravel</a>
-<a href="#m5">5. REST API</a>
-<a href="#m6">6. Keamanan</a>
-<a href="#m7">7. Database lanjutan</a>
-<a href="#m8">8. Logika bisnis</a>
-<a href="#m9">9. Simulasi lomba</a>
-<a href="#kamus">Kamus istilah</a>
-<div class="sep">Sesi berikutnya</div>
-<a href="#next" class="lock">Peta belajar lanjutan</a>
+<a href="#home"><i lang="ja">序</i>Mulai di sini</a>
+<a href="#m1"><i lang="ja">一</i>Git dan GitHub</a>
+<a href="#m2"><i lang="ja">二</i>MySQL dan SQL</a>
+<a href="#m3"><i lang="ja">三</i>Rekap PHP</a>
+<a href="#m4"><i lang="ja">四</i>PHP OOP dan Laravel</a>
+<a href="#m5"><i lang="ja">五</i>REST API</a>
+<a href="#m6"><i lang="ja">六</i>Keamanan</a>
+<a href="#m7"><i lang="ja">七</i>Database lanjutan</a>
+<a href="#m8"><i lang="ja">八</i>Logika bisnis</a>
+<a href="#m9"><i lang="ja">九</i>Simulasi lomba</a>
+<div class="sep">Referensi</div>
+<a href="#kamus"><i lang="ja">辞</i>Kamus istilah</a>
+<a href="#next" class="lock"><i lang="ja">次</i>Peta belajar lanjutan</a>
 </div>
 </nav>
 
 <main>
 <!-- HOME -->
 <section id="home" class="mod">
-<h2>Belajar backend untuk LKS Web Technologies</h2>
-<p class="meta">Tema latihan: Modalin, platform pengajuan pembiayaan UMKM. Soal lomba nanti juga bertema serupa.</p>
-<p>Target akhir: kamu bisa membuat bagian "dapur" sebuah website (backend) memakai Laravel, lalu mengirim hasilnya ke GitHub. Di sesi 1 kita siapkan tiga dasar dulu: <b>Git</b> (menyimpan kode), <b>MySQL</b> (menyimpan data), dan <b>PHP</b> (bahasa pemrogramannya).</p>
+<div class="hero">
+<p class="tate" lang="ja" aria-hidden="true">一歩ずつ</p>
+<p class="eyebrow">Latihan LKS Web Technologies <span lang="ja">序</span></p>
+<h2>Belajar backend<br>Laravel dari nol,<br>satu langkah <em>demi langkah.</em></h2>
+<p class="lead">Target akhir: kamu bisa membuat bagian "dapur" sebuah website (backend) memakai Laravel, lalu mengirim hasilnya ke GitHub. Kita mulai dari tiga dasar dulu: <b>Git</b> (menyimpan kode), <b>MySQL</b> (menyimpan data), dan <b>PHP</b> (bahasa pemrogramannya).</p>
+<div class="hero-row">
+<dl>
+<div><dt>Tema</dt><dd>Modalin, platform pembiayaan UMKM</dd></div>
+<div><dt>Stack</dt><dd>Git, MySQL, PHP, Laravel, Sanctum</dd></div>
+<div><dt>Isi</dt><dd>9 modul, terminal simulasi, kuis</dd></div>
+</dl>
+<div class="acts"><a class="btn" href="#m1">Mulai Modul 1 <span aria-hidden="true">→</span></a><a class="btn ghost" href="#kamus">Kamus istilah</a></div>
+</div>
+</div>
+
 <div class="note"><b>Ketemu kata asing?</b> Kata yang bergaris putus-putus bisa diketuk untuk melihat artinya. Semua istilah dan arti kode ada di menu <a href="#kamus">Kamus istilah</a>.</div>
+
 <h3>Cara belajar di sini</h3>
 <div class="steps">
-<div><b>1. Baca</b>Pahami analogi dan contoh singkatnya.</div>
-<div><b>2. Ketik sendiri</b>Jangan copy-paste. Jari yang mengetik ikut mengingat.</div>
-<div><b>3. Tebak dulu</b>Sebelum menjalankan, tebak hasilnya. Salah tebak itu bagus.</div>
-<div><b>4. Latihan dan kuis</b>Kerjakan latihan, lalu uji pemahamanmu dengan kuis pilihan ganda di akhir tiap modul.</div>
+<div><b><em lang="ja">読</em>1. Baca</b>Pahami analogi dan contoh singkatnya.</div>
+<div><b><em lang="ja">打</em>2. Ketik sendiri</b>Jangan copy-paste. Jari yang mengetik ikut mengingat.</div>
+<div><b><em lang="ja">想</em>3. Tebak dulu</b>Sebelum menjalankan, tebak hasilnya. Salah tebak itu bagus.</div>
+<div><b><em lang="ja">試</em>4. Latihan dan kuis</b>Kerjakan latihan, lalu uji pemahamanmu dengan kuis pilihan ganda di akhir tiap modul.</div>
 </div>
+
+<h3>Peta belajar</h3>
+<p>Modul disusun berurutan. Kalau kamu benar-benar baru, ikuti dari atas ke bawah dan jangan loncat.</p>
+<div class="path">
+<a href="#m1"><i lang="ja">基</i><small>Modul 1 – 3 · Dasar</small><b>Fondasi</b><span>Git, SQL, dan PHP. Wajib sebelum menyentuh Laravel.</span></a>
+<a href="#m4"><i lang="ja">築</i><small>Modul 4 – 7 · Inti</small><b>Membangun API</b><span>OOP, Laravel, REST API, keamanan, dan database lanjutan.</span></a>
+<a href="#m8"><i lang="ja">挑</i><small>Modul 8 – 9 · Lomba</small><b>Siap bertanding</b><span>Logika bisnis, lalu simulasi lomba 3 jam.</span></a>
+</div>
+
 <div class="note"><b>Error itu normal.</b> Programmer sungguhan mengalami error setiap hari. Baca pesannya, cari nomor baris, lalu perbaiki satu per satu.</div>
 <h3>Persiapan</h3>
 <label class="ck"><input type="checkbox" data-k="p1">Laragon atau XAMPP sudah terpasang, dan MySQL bisa dinyalakan</label>
 <label class="ck"><input type="checkbox" data-k="p2"><span><code>php -v</code> di terminal menampilkan versi 8.2 atau lebih baru</span></label>
 <label class="ck"><input type="checkbox" data-k="p3">Git terpasang, <code>git --version</code> berjalan</label>
 <label class="ck"><input type="checkbox" data-k="p4">VS Code terpasang, dan sudah punya akun GitHub</label>
-<a class="btn" href="#m1">Mulai Modul 1</a>
 </section>
 
 <!-- M1 -->
@@ -703,7 +866,7 @@ public function verify(Pengajuan $pengajuan)
 <section id="m9" class="mod">
 <h2>9. Simulasi lomba</h2>
 <p class="meta">Bangun versi mini "Digital Pembiayaan UMKM" dari nol, seperti di lomba.</p>
-<div class="box"><b id="tm">03:00:00</b> <button class="btn" id="tms" style="margin:0 0 0 10px;border:0;cursor:pointer">Mulai timer</button></div>
+<div class="box timer"><div><small>Sisa waktu</small><b id="tm">03:00:00</b></div><button class="btn" id="tms">Mulai timer</button></div>
 <div class="note"><b>Aturan simulasi:</b> tanpa AI, tanpa forum, tanpa template dari rumah. Hanya dokumentasi resmi Laravel. Pengerjaan dimulai dari instalasi Laravel kosong.</div>
 <h3>Daftar tugas (urut dari yang terpenting)</h3>
 <label class="ck"><input type="checkbox" data-k="x1">Project Laravel baru, database MySQL tersambung, repo GitHub dibuat dan akun guru jadi collaborator</label>
@@ -1297,6 +1460,99 @@ function mkPhp(el){
   };
   p.appendChild(b);
 });
+})();
+</script>
+<script>
+/*
+ * Tambahan tampilan (gaya Miravatech) untuk membantu pemula:
+ * - judul modul diberi label "Modul 01" + angka kanji,
+ * - tiap modul punya daftar isi dan perkiraan waktu baca,
+ * - tombol "Sebelumnya / Berikutnya" di bawah setiap modul,
+ * - menu samping untuk HP, dan tombol tema terang/gelap.
+ */
+(function(){
+  var KANJI=['序','一','二','三','四','五','六','七','八','九'];
+  var nav=document.getElementById('nav'),menu=document.getElementById('menu');
+  var links=[].slice.call(nav.querySelectorAll('a'));
+  var order=links.map(function(a){return a.getAttribute('href').slice(1)});
+
+  // Menu samping di layar kecil
+  function closeNav(){nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}
+  menu.addEventListener('click',function(e){e.stopPropagation();var o=nav.classList.toggle('open');menu.setAttribute('aria-expanded',o?'true':'false')});
+  document.addEventListener('click',function(e){if(nav.classList.contains('open')&&!nav.contains(e.target))closeNav()});
+  window.addEventListener('hashchange',closeNav);
+
+  // Tema terang / gelap (disimpan di browser)
+  var root=document.documentElement,th=document.getElementById('theme');
+  try{var saved=localStorage.getItem('lks-theme');if(saved)root.dataset.theme=saved}catch(e){}
+  th.addEventListener('click',function(){
+    var dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset.theme=dark?'light':'dark';
+    try{localStorage.setItem('lks-theme',root.dataset.theme)}catch(e){}
+  });
+
+  [].slice.call(document.querySelectorAll('.mod')).forEach(function(sec){
+    var h2=sec.querySelector('h2');if(!h2||sec.id==='home')return;
+    var m=/^m(\d)$/.exec(sec.id),meta=sec.querySelector('.meta');
+
+    // Label di atas judul
+    var eb=document.createElement('p');eb.className='eyebrow';
+    if(m){
+      h2.textContent=h2.textContent.replace(/^\d+\.\s*/,'');
+      eb.innerHTML='Modul 0'+m[1]+' dari 09 <span lang="ja">'+KANJI[+m[1]]+'</span>';
+    }else{eb.textContent='Referensi'}
+    sec.insertBefore(eb,h2);
+    h2.insertAdjacentHTML('beforeend','<span class="dot">.</span>');
+
+    // Nomor kecil di setiap subjudul + daftar isi
+    var hs=[].slice.call(sec.querySelectorAll(':scope > h3'));
+    if(m&&hs.length>2){
+      var facts=document.createElement('div');facts.className='facts';
+      facts.innerHTML='<span><b>'+hs.length+'</b> bagian</span><span>'+(sec.querySelector('.term,.pe')?'<b>Ada</b> latihan interaktif':'Latihan mandiri')+'</span><span>'+(sec.querySelector('.quiz')?'<b>Kuis</b> di akhir':'Checklist tugas')+'</span>';
+      (meta||h2).insertAdjacentElement('afterend',facts);
+      var toc=document.createElement('div');toc.className='toc';
+      toc.innerHTML='<b>Isi modul ini</b><ol></ol>';
+      var ol=toc.querySelector('ol');
+      hs.forEach(function(h,i){
+        var num=(i+1<10?'0':'')+(i+1);
+        h.insertAdjacentHTML('afterbegin','<span class="n">'+num+'</span>');
+        var li=document.createElement('li'),b=document.createElement('button');
+        b.type='button';b.innerHTML='<span>'+num+'</span>';
+        b.appendChild(document.createTextNode(h.textContent.replace(/^\d+/,'')));
+        b.onclick=function(){h.scrollIntoView({behavior:'smooth',block:'start'})};
+        li.appendChild(b);ol.appendChild(li);
+      });
+      facts.insertAdjacentElement('afterend',toc);
+    }
+    hs.forEach(function(h){h.style.scrollMarginTop='80px'});
+  });
+
+  // Tombol sebelumnya / berikutnya
+  [].slice.call(document.querySelectorAll('.mod')).forEach(function(sec){
+    var i=order.indexOf(sec.id);if(i<0)return;
+    var pv=order[i-1],nx=order[i+1];
+    function lab(id){var a=links[order.indexOf(id)];return a?a.textContent.replace(/^./,''):''}
+    [].slice.call(sec.querySelectorAll(':scope > a.btn[href^="#"]')).forEach(function(x){x.remove()});
+    var pg=document.createElement('div');pg.className='pager';
+    if(pv)pg.innerHTML+='<a href="#'+pv+'"><small>← Sebelumnya</small>'+lab(pv)+'</a>';
+    if(nx)pg.innerHTML+='<a class="nx" href="#'+nx+'"><small>Berikutnya →</small>'+lab(nx)+'</a>';
+    sec.appendChild(pg);
+  });
+
+  // Persentase progres + tanda modul yang checklist-nya sudah lengkap
+  var pct=document.getElementById('pct');
+  function prog(){
+    var all=[].slice.call(document.querySelectorAll('input[data-k]'));
+    var n=all.filter(function(b){return b.checked}).length;
+    pct.textContent=(all.length?Math.round(n/all.length*100):0)+'%';
+    links.forEach(function(a){
+      var s=document.getElementById(a.getAttribute('href').slice(1));if(!s)return;
+      var bx=[].slice.call(s.querySelectorAll('input[data-k]'));
+      a.classList.toggle('done',bx.length>0&&bx.every(function(b){return b.checked}));
+    });
+  }
+  document.addEventListener('change',function(e){if(e.target.matches&&e.target.matches('input[data-k]'))prog()});
+  prog();
 })();
 </script>
 </body>
