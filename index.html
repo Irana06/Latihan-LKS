@@ -359,6 +359,7 @@ nav a i.s{font-size:11px;letter-spacing:-1px}
 <a href="#kisi"><i lang="ja">綱</i>Kisi-kisi 2027</a>
 <a href="#kamus"><i lang="ja">辞</i>Kamus istilah</a>
 <a href="#ulang"><i lang="ja">復</i>Latihan harian</a>
+<a href="#ajar"><i lang="ja">師</i>Panduan mengajar</a>
 <a href="#git" class="lock"><i lang="ja">録</i>Lampiran: Git</a>
 </div>
 </nav>
@@ -594,15 +595,18 @@ nav a i.s{font-size:11px;letter-spacing:-1px}
 <details><summary>Bolehkah memakai React atau Vue?</summary><p>Modul 1 dikerjakan dengan JavaScript biasa. Untuk Modul 2 dan 3, tergantung izin panitia. Belum tentu boleh, jadi kuasai JavaScript biasa dulu.</p></details>
 <details><summary>Apa bedanya latihan di web ini dengan lomba aslinya?</summary><p>Di web ini, API sudah disediakan dalam bentuk tiruan supaya bisa latihan di HP. Di lomba, kamu bekerja di komputer dengan VS Code, browser, dan (untuk Modul 3) Laravel dan MySQL. Karena itu, kerjakan juga <a href="#m12">Simulasi lomba</a> di laptop.</p></details>
 
-<h3>Rencana belajar yang disarankan</h3>
-<table><tr><th>Tahap</th><th>Modul di web ini</th><th>Perkiraan waktu belajar</th></tr>
-<tr><td>1. Dasar web</td><td><a href="#m1">1</a> – <a href="#m4">4</a></td><td>2–3 minggu</td></tr>
-<tr><td>2. Latihan soal Modul 1 lomba</td><td><a href="#m5">5</a> + Paket A simulasi</td><td>1–2 minggu</td></tr>
-<tr><td>3. Latihan soal Modul 2 lomba</td><td><a href="#m6">6</a> + Paket B simulasi</td><td>1–2 minggu</td></tr>
-<tr><td>4. Laravel</td><td><a href="#m7">7</a> – <a href="#m10">10</a></td><td>3–4 minggu</td></tr>
-<tr><td>5. Latihan soal Modul 3 lomba</td><td><a href="#m11">11</a> + Paket C simulasi</td><td>2 minggu</td></tr>
-<tr><td>6. Ulang semua dengan timer</td><td><a href="#m12">12</a></td><td>Sampai hari lomba</td></tr></table>
-<p>Waktunya hanya perkiraan untuk belajar sekitar 1–2 jam per hari. Sesuaikan dengan jadwal yang diberikan guru.</p>
+<h3>Rencana belajar 8 minggu</h3>
+<p>Lomba sekitar dua bulan lagi. Rencananya: 2 kali pertemuan seminggu bersama pengajar, ditambah belajar sendiri di web ini sekitar 1 jam sehari. Waktunya padat, jadi jangan ditunda.</p>
+<table><tr><th>Minggu</th><th>Fokus</th><th>Modul</th><th>Target akhir minggu</th></tr>
+<tr><td>1</td><td>Cara kerja web, HTML, CSS</td><td><a href="#m1">1</a>, <a href="#m2">2</a></td><td>Bisa membuat halaman kartu yang rapi di HP</td></tr>
+<tr><td>2</td><td>JavaScript, DOM, localStorage</td><td><a href="#m3">3</a>, <a href="#m4">4</a></td><td>Latihan "tempat favorit" lulus 6/6</td></tr>
+<tr><td>3</td><td>Soal lomba 1: Jelajah Jogja</td><td><a href="#m5">5</a> + Paket A</td><td>Lulus 9/9, lalu simulasi 3 jam di laptop</td></tr>
+<tr><td>4</td><td>Soal lomba 2: JogjaEvent</td><td><a href="#m6">6</a> + Paket B</td><td>Lulus 12/12, lalu simulasi 3 jam. Pasang Laragon dan Composer</td></tr>
+<tr><td>5</td><td>SQL, PHP, Laravel</td><td><a href="#m7">7</a>, <a href="#m8">8</a></td><td><code>migrate:fresh --seed</code> berjalan di laptop sendiri</td></tr>
+<tr><td>6</td><td>REST API dan login</td><td><a href="#m9">9</a>, <a href="#m10">10</a></td><td>CRUD dan login teruji di Postman</td></tr>
+<tr><td>7</td><td>Soal lomba 3: tampilan + API</td><td><a href="#m11">11</a> + Paket C</td><td>Lulus 12/12, lalu simulasi 4 jam</td></tr>
+<tr><td>8</td><td>Simulasi ulang dan gladi bersih</td><td><a href="#m12">12</a></td><td>Ketiga paket selesai dalam waktu</td></tr></table>
+<div class="note"><b>Kalau tertinggal:</b> jangan panik dan jangan loncat modul. Urutan prioritasnya: soal lomba 1 (paling mudah, 30 poin), lalu soal lomba 2 (30 poin), lalu soal lomba 3 bagian API: CRUD dan login dulu, pencarian dan tampilan belakangan. Isi bagian "Hitung target nilaimu" di atas setiap akhir minggu.</div>
 <div class="acts lb-go"><a class="btn" href="#m1">Mulai Modul 1 <span aria-hidden="true">→</span></a><a class="btn ghost" href="#kisi">Lihat ringkasan kisi-kisi</a></div>
 </section>
 
@@ -2944,6 +2948,120 @@ tampilkan();</code></pre></details>
 <div id="dr"></div>
 </section>
 
+<!-- AJAR -->
+<section id="ajar" class="mod" data-eb="Untuk pengajar" data-toc="1">
+<h2>Panduan mengajar</h2>
+<p class="meta">Untuk kakak pendamping yang baru pertama kali mengajar. Isinya cara menyusun pertemuan, teknik yang mudah ditiru, dan rencana 8 minggu per pertemuan.</p>
+
+<h3>Kamu tidak harus jago dulu</h3>
+<p>Mengajar coding bukan soal tahu segalanya. Cukup <b>selangkah di depan murid</b>. Sebelum pertemuan, kerjakan dulu latihan modul yang akan dibahas, supaya kamu tahu bagian mana yang menjebak.</p>
+<p>Kalau ditanya dan belum tahu jawabannya, bilang saja: <i>"Aku belum tahu. Yuk kita cari bareng."</i> Lalu cari di MDN atau dokumentasi Laravel di depan mereka. Itu justru pelajaran penting: di lomba nanti mereka juga harus bisa mencari jawaban sendiri.</p>
+<div class="note"><b>Prinsip utama:</b> murid paham karena <b>mengetik dan mencoba sendiri</b>, bukan karena mendengar penjelasan panjang. Usahakan murid mengetik lebih lama daripada kamu bicara.</div>
+
+<h3>Susunan satu pertemuan (2 jam)</h3>
+<table><tr><th>Waktu</th><th>Kegiatan</th><th>Caranya</th></tr>
+<tr><td>10 menit</td><td>Pemanasan</td><td>Semua membuka <a href="#ulang">Latihan harian</a>, atau kamu tanya 3 hal dari pertemuan lalu secara lisan. Tujuannya mengingat, bukan menilai.</td></tr>
+<tr><td>15 menit</td><td>Penjelasan + demo</td><td>Satu konsep saja. Ceritakan analoginya, lalu ketik contohnya di depan (layar diproyeksikan). Jangan copy-paste.</td></tr>
+<tr><td>15 menit</td><td>Kerjakan bersama</td><td>Satu latihan kecil diketik bersama, langkah demi langkah. Murid ikut mengetik di laptop atau HP mereka.</td></tr>
+<tr><td>50 menit</td><td>Latihan mandiri</td><td>Murid mengerjakan latihan di modul, sendiri atau berpasangan. Kamu berkeliling membantu.</td></tr>
+<tr><td>20 menit</td><td>Bahas bersama</td><td>1–2 murid menunjukkan hasilnya. Bahas error yang paling banyak muncul hari itu.</td></tr>
+<tr><td>10 menit</td><td>Penutup</td><td>Ringkas 3 poin penting. Beri PR mandiri dan sebut topik pertemuan berikutnya.</td></tr></table>
+
+<h3>Lima teknik yang mudah ditiru</h3>
+<p><b>1. Aku, kita, kamu.</b> Kamu contohkan dulu (aku), lalu kerjakan bersama (kita), lalu murid mengerjakan sendiri soal yang mirip (kamu). Jangan langsung loncat ke "kerjakan sendiri".</p>
+<p><b>2. Tebak dulu sebelum menjalankan.</b> Sebelum menekan Jalankan, tanya: <i>"Menurut kalian hasilnya apa?"</i> Tebakan yang salah membuat murid lebih ingat daripada penjelasan.</p>
+<p><b>3. Sengaja buat error.</b> Saat demo, hapus satu tanda kurung atau lupa <code>e.preventDefault()</code>, lalu tunjukkan cara membaca pesan error di Console. Murid jadi tidak takut melihat tulisan merah.</p>
+<p><b>4. Jangan ambil alih keyboard.</b> Saat membantu murid yang buntu, tunjuk dengan pertanyaan: <i>"Error-nya di baris berapa?"</i>, <i>"Variabel ini isinya apa? Coba console.log."</i> Kalau kamu yang mengetik, murid tidak belajar apa-apa.</p>
+<p><b>5. Berpasangan.</b> Dua murid satu laptop: satu mengetik (driver), satu membaca soal dan mengecek (navigator). Tukar peran tiap 10–15 menit. Cocok untuk latihan proyek di Modul 5, 6, dan 11.</p>
+
+<h3>Kalau kemampuan murid berbeda-beda</h3>
+<table><tr><th>Murid</th><th>Yang bisa kamu lakukan</th></tr>
+<tr><td>Cepat selesai</td><td>Minta mengerjakan ulang tanpa melihat kunci, atau jadi "asisten" yang membantu teman dengan pertanyaan (bukan memberi jawaban).</td></tr>
+<tr><td>Tertinggal</td><td>Fokus ke fitur berbobot besar dulu. Pakai tombol Petunjuk di editor. Duduk di sampingnya 5 menit di awal latihan mandiri.</td></tr>
+<tr><td>Diam dan malu bertanya</td><td>Datangi dan tanya "sudah sampai mana?", bukan "ada yang bingung?". Pujian kecil saat berhasil sangat membantu.</td></tr></table>
+<div class="try"><b>Aturan "tanya 3 dulu"</b>Sebelum bertanya ke pengajar, murid harus mencoba 3 cara: baca pesan error, cek modul atau Kamus istilah, lalu tanya teman. Ini melatih kemandirian yang dibutuhkan saat lomba, karena di lomba tidak ada yang bisa ditanya.</div>
+
+<h3>Cara memantau kemajuan</h3>
+<p>Tidak perlu membuat ujian sendiri. Pakai yang sudah ada di web ini:</p>
+<ul>
+<li><b>Periksa otomatis</b> di setiap proyek: minta murid menunjukkan skornya (misalnya 9/9).</li>
+<li><b>Hitung target nilaimu</b> di halaman <a href="#lomba">Memahami soal lomba</a>: minta diisi setiap akhir minggu, lalu catat angkanya.</li>
+<li><b>Kuis</b> di akhir modul dan <b>Latihan harian</b>.</li>
+<li><b>Simulasi</b> di Modul 12: catat berapa fitur yang selesai dalam waktu.</li>
+</ul>
+<p>Catatan sederhana di buku atau spreadsheet sudah cukup: nama murid, minggu, target nilai, dan bagian yang masih sulit.</p>
+
+<h3>Rencana per pertemuan</h3>
+<p>Setiap minggu ada pertemuan A dan B. "Siapkan" adalah yang perlu kamu kerjakan sendiri sebelum mengajar.</p>
+<details open><summary>Minggu 1 · Cara kerja web, HTML, CSS</summary>
+<p><b>Siapkan:</b> pastikan semua murid sudah memasang VS Code + Live Server dan browser. Coba latihan CSS di Modul 2.</p>
+<p><b>Pertemuan A:</b> <a href="#lomba">Memahami soal lomba</a> (15 menit, supaya murid tahu tujuannya), lalu <a href="#m1">Modul 1</a>: client-server, status code, buka DevTools bersama. Lanjut HTML dan form di <a href="#m2">Modul 2</a>.</p>
+<p><b>Pertemuan B:</b> CSS: box model, flexbox, grid, media query. Kerjakan latihan halaman responsif. Tunjukkan perbedaan dengan dan tanpa meta viewport.</p>
+<p><b>PR:</b> buat halaman berisi 4 tempat wisata favorit dalam bentuk kartu, rapi di HP. Kuis Modul 1–2.</p>
+<p><b>Tanda sudah paham:</b> bisa membuat grid kartu responsif tanpa melihat contoh.</p></details>
+<details><summary>Minggu 2 · JavaScript dan DOM</summary>
+<p><b>Siapkan:</b> kerjakan sendiri tiga latihan JS di Modul 3 dan latihan tempat favorit di Modul 4.</p>
+<p><b>Pertemuan A:</b> <a href="#m3">Modul 3</a>: variabel, if, array, object, lalu fokus ke <code>filter</code>, <code>find</code>, <code>map</code>. Kerjakan latihan "saring" bersama, sisanya mandiri.</p>
+<p><b>Pertemuan B:</b> <a href="#m4">Modul 4</a>: querySelector, event, pola render, localStorage. Demo sengaja lupa <code>e.preventDefault()</code>. Latihan tempat favorit sampai lulus 6/6.</p>
+<p><b>PR:</b> tambahkan tombol mode gelap yang diingat ke latihan tempat favorit.</p>
+<p><b>Tanda sudah paham:</b> bisa menjelaskan urutan "ubah array → simpan → render" dengan kata-kata sendiri.</p></details>
+<details><summary>Minggu 3 · Soal lomba 1: Jelajah Jogja</summary>
+<p><b>Siapkan:</b> kerjakan sendiri proyek Modul 5 sampai lulus 9/9. Catat bagian yang paling membingungkan.</p>
+<p><b>Pertemuan A:</b> <a href="#m5">Modul 5</a>: SVG, viewBox, dan koordinat klik. Kerjakan bersama sampai marker pertama muncul di posisi klik. Ini bagian tersulit, jadi lakukan pelan-pelan.</p>
+<p><b>Pertemuan B:</b> murid melanjutkan berpasangan: info marker, cari/filter, hapus, localStorage. Akhiri dengan Periksa otomatis.</p>
+<p><b>Akhir minggu:</b> Paket A di <a href="#m12">Simulasi lomba</a>, 3 jam di laptop, dari folder kosong.</p>
+<p><b>Tanda sudah paham:</b> lulus 9/9 dan simulasi minimal setengah fitur selesai.</p></details>
+<details><summary>Minggu 4 · Soal lomba 2: JogjaEvent</summary>
+<p><b>Siapkan:</b> kerjakan proyek Modul 6. Minta murid memasang Laragon (atau XAMPP), Composer, dan Postman minggu ini, karena pemasangan sering bermasalah dan butuh waktu.</p>
+<p><b>Pertemuan A:</b> <a href="#m6">Modul 6</a>: fetch, async/await, <code>res.ok</code>, loading dan error. Kerjakan bersama sampai daftar event tampil dan pencarian jalan. Coba tombol "Simulasikan API error".</p>
+<p><b>Pertemuan B:</b> pagination, detail, bookmark, tema, aksesibilitas (uji dengan tombol Tab). Periksa otomatis 12/12.</p>
+<p><b>Akhir minggu:</b> Paket B simulasi.</p>
+<p><b>Tanda sudah paham:</b> bisa menjelaskan kenapa <code>res.ok</code> harus dicek.</p></details>
+<details><summary>Minggu 5 · SQL, PHP, Laravel</summary>
+<p><b>Siapkan:</b> buat project Laravel sendiri dari nol sampai <code>migrate:fresh --seed</code> berhasil. Catat semua masalah instalasi yang kamu temui.</p>
+<p><b>Pertemuan A:</b> <a href="#m7">Modul 7</a>: SQL di terminal latihan, lalu tabel "Dari JavaScript ke PHP". Karena murid sudah bisa JavaScript, PHP cukup dibahas sebagai perbedaan ejaan.</p>
+<p><b>Pertemuan B:</b> <a href="#m8">Modul 8</a>: semua membuat project Laravel bersama di laptop masing-masing, langkah demi langkah: <code>.env</code>, migration, model, relasi, seeder.</p>
+<p><b>Tanda sudah paham:</b> <code>php artisan migrate:fresh --seed</code> berjalan tanpa error di laptop sendiri.</p></details>
+<details><summary>Minggu 6 · REST API dan login</summary>
+<p><b>Siapkan:</b> lanjutkan project Laravel-mu sampai CRUD dan login jalan di Postman.</p>
+<p><b>Pertemuan A:</b> <a href="#m9">Modul 9</a>: route, controller, Form Request, Resource. Uji di Postman bersama, termasuk skenario gagal (422 dan 404). Ingatkan header <code>Accept: application/json</code>.</p>
+<p><b>Pertemuan B:</b> <a href="#m10">Modul 10</a>: register, login, logout, dan melindungi route. Centang checklist Postman di modul itu satu per satu.</p>
+<p><b>Tanda sudah paham:</b> POST tanpa token dibalas 401, dengan token dibalas 201.</p></details>
+<details><summary>Minggu 7 · Soal lomba 3: tampilan + API</summary>
+<p><b>Siapkan:</b> kerjakan proyek Modul 11 di web, lalu sambungkan ke Laravel-mu di laptop.</p>
+<p><b>Pertemuan A:</b> <a href="#m11">Modul 11</a>: fungsi <code>api()</code>, login dan simpan token, daftar data. Kerjakan bersama.</p>
+<p><b>Pertemuan B:</b> tambah/ubah/hapus dan pesan validasi 422. Lalu sambungkan ke Laravel asli di laptop (Live Server + <code>php artisan serve</code>).</p>
+<p><b>Akhir minggu:</b> Paket C simulasi, 4 jam.</p>
+<p><b>Tanda sudah paham:</b> lulus 12/12 dan frontend di laptop berhasil login ke Laravel sendiri.</p></details>
+<details><summary>Minggu 8 · Simulasi ulang dan gladi bersih</summary>
+<p><b>Pertemuan A:</b> ulangi simulasi paket yang nilainya paling rendah. Setelah itu, bahas bersama: fitur apa yang memakan waktu paling lama?</p>
+<p><b>Pertemuan B:</b> gladi bersih: latihan menyusun folder penyerahan dan README, latihan "mengetes seperti penguji" (isian kosong, reload, password salah), dan cek software apa saja yang akan dipakai di lomba (tanyakan ke guru).</p>
+<p><b>Pesan untuk murid:</b> sehari sebelum lomba tidak perlu belajar hal baru. Istirahat cukup.</p></details>
+
+<h3>Kesalahan murid yang paling sering</h3>
+<p>Kalau murid bilang "kok nggak jalan?", cek daftar ini dulu. Biasanya penyebabnya salah satu di antaranya.</p>
+<table><tr><th>Gejala</th><th>Penyebab biasa</th></tr>
+<tr><td>Halaman berkedip, data hilang setelah klik Simpan</td><td>Lupa <code>e.preventDefault()</code> di event submit</td></tr>
+<tr><td><code>Cannot read properties of null</code></td><td>Salah tulis id di <code>querySelector</code>, atau script dimuat sebelum elemennya ada</td></tr>
+<tr><td>Data hilang setelah reload</td><td>Lupa <code>simpan()</code> setelah mengubah array, atau lupa <code>muat()</code> saat halaman dibuka</td></tr>
+<tr><td>Isi localStorage tertulis <code>[object Object]</code></td><td>Lupa <code>JSON.stringify</code></td></tr>
+<tr><td>Marker SVG ada di Elements tapi tidak tampil</td><td>Memakai <code>createElement</code>, bukan <code>createElementNS</code></td></tr>
+<tr><td>Filter kategori tidak cocok padahal datanya ada</td><td>Membandingkan angka dengan teks dari input (<code>'1' === 1</code> hasilnya false)</td></tr>
+<tr><td>Data API tampil <code>undefined</code></td><td>Lupa <code>await</code>, atau lupa membuka <code>json.data</code></td></tr>
+<tr><td>Laravel membalas halaman HTML, bukan JSON</td><td>Lupa header <code>Accept: application/json</code></td></tr>
+<tr><td><code>MassAssignmentException</code></td><td>Kolom belum ada di <code>$fillable</code></td></tr>
+<tr><td>Semua request ditolak 403</td><td><code>authorize()</code> di Form Request masih <code>return false</code></td></tr>
+<tr><td>Error CORS di Console</td><td>Laravel belum menyala, salah port, atau alamat API salah</td></tr></table>
+
+<h3>Menjaga semangat (termasuk semangatmu)</h3>
+<ul>
+<li>Rayakan kemajuan kecil: marker pertama muncul, login pertama berhasil.</li>
+<li>Bandingkan murid dengan dirinya minggu lalu, bukan dengan temannya.</li>
+<li>Pertemuan yang kacau itu normal, terutama di minggu-minggu awal. Catat apa yang tidak berjalan, lalu ubah untuk pertemuan berikutnya.</li>
+<li>Kamu tidak harus menjawab semua pertanyaan saat itu juga. "Aku cek dulu, besok kita bahas" itu jawaban yang baik.</li>
+</ul>
+</section>
+
 <!-- GIT -->
 <section id="git" class="mod">
 <h2>Lampiran: Git dan GitHub</h2>
@@ -3256,7 +3374,7 @@ var G=[
     var seen={},w=document.createTreeWalker(m,NodeFilter.SHOW_TEXT,null),ns=[],n;
     while((n=w.nextNode()))ns.push(n);
     ns.forEach(function(n){
-      if(n.parentNode.closest('pre,code,button,a,summary,h2,h3,u,label,textarea,table,.hero,.bars,.mock,.gloss,.term,.pe,.quiz,#kl,#dr'))return;
+      if(n.parentNode.closest('pre,code,button,a,summary,h2,h3,u,label,textarea,table,.hero,.bars,.mock,.gloss,#ajar,.term,.pe,.quiz,#kl,#dr'))return;
       var t=n.nodeValue,rg=new RegExp(src,'gi'),ps=[],last=0,mt;
       while((mt=rg.exec(t))){var k=mt[1].toLowerCase();if(seen[k])continue;seen[k]=1;ps.push([mt.index,mt[1]])}
       if(!ps.length)return;
