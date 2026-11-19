@@ -274,6 +274,58 @@ nav a i.s{font-size:11px;letter-spacing:-1px}
 .bars b{display:block;font:300 26px/1 var(--mono);margin-bottom:4px}
 .timer .acts{display:flex;gap:8px;flex-wrap:wrap}
 @media(max-width:600px){.bars{flex-direction:column}.bars div{flex-basis:auto}}
+/* ---------- Halaman Memahami lomba ---------- */
+.lb-tiga{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
+.lb-tiga a{display:flex;flex-direction:column;gap:2px;padding:16px;border:1px solid var(--line);border-radius:var(--r);background:var(--card);color:var(--ink);text-decoration:none;transition:border-color .2s}
+.lb-tiga a:hover{border-color:var(--ai)}
+.lb-tiga small{font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--subtle)}
+.lb-tiga b{font-size:18px;font-weight:500}
+.lb-tiga span{font-size:14px;color:var(--mute);flex:1}
+.lb-tiga em{font:300 26px/1.2 var(--mono);font-style:normal;color:var(--ai);margin-top:8px}
+.lb-mod{display:grid;grid-template-columns:240px 1fr;gap:24px;align-items:start}
+.lb-mod ul{margin:6px 0}
+.mock{border:1px solid var(--line-strong);border-radius:10px;overflow:hidden;background:var(--card);font:12px/1.4 var(--sans);position:sticky;top:84px}
+.mk-bar{display:flex;justify-content:space-between;padding:8px 10px;background:var(--ink);color:var(--paper);font-weight:600}
+.mk-bar span{font-weight:400;opacity:.8}
+.mk-body{padding:10px;display:flex;flex-direction:column;gap:6px}
+.mk-peta{flex-direction:row}
+.mk-map{position:relative;flex:1;height:130px;border-radius:6px;background:linear-gradient(160deg,#e9e4d6 0 55%,#cfe3f0 55%)}
+.mk-map i{position:absolute;width:12px;height:12px;border-radius:50%;background:#2c3a8f;border:2px solid #fff;box-shadow:0 1px 3px #0004}
+.mk-map i.b{background:#b23a3a}.mk-map i.c{background:#2f7d4f}
+.mk-side{width:78px;display:flex;flex-direction:column;gap:5px;padding:6px;border:1px solid var(--line);border-radius:6px}
+.mk-side span{color:var(--mute);font-size:11px}
+.ln{display:block;height:5px;border-radius:3px;background:var(--line)}
+.ln.s{width:60%}
+.bt,.mk-more,.mk-row span{display:inline-block;padding:2px 6px;border:1px solid var(--line-strong);border-radius:4px;font-size:10px;text-align:center;color:var(--ink)}
+.mk-hp{width:200px;margin:0 auto;border-radius:22px;border:6px solid var(--ink)}
+.mk-cari{padding:5px 8px;border:1px solid var(--line-strong);border-radius:6px;color:var(--subtle)}
+.mk-card{display:flex;gap:8px;align-items:center;padding:6px;border:1px solid var(--line);border-radius:6px}
+.mk-card>i{width:34px;height:26px;border-radius:4px;background:#2c3a8f;flex:none}
+.mk-card>i.b{background:#2f7d4f}.mk-card>i.c{background:#7b3fa0}
+.mk-card>span{flex:1;display:flex;flex-direction:column;gap:3px}
+.mk-card em{font-style:normal;color:var(--ai)}
+.mk-req{display:flex;gap:6px;padding:5px 8px;background:var(--night);color:var(--night-text);border-radius:5px;font:11px var(--mono)}
+.mk-req b{color:var(--ai-light);font-weight:500}
+.mk-req em{margin-left:auto;font-style:normal;color:#8fd19e}.mk-req em.er{color:#f08a8a}
+.mk-row{display:flex;gap:6px;align-items:center;padding:5px 0;border-bottom:1px solid var(--line)}
+.mk-row b{flex:1;font-weight:500}
+.lb-aturan{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:16px 0;border-top:1px solid var(--ink)}
+.lb-aturan div{padding:14px 14px 16px 0;border-bottom:1px solid var(--line);font-size:15px;color:var(--mute)}
+.lb-aturan b{display:block;color:var(--ink);font-weight:500;margin-bottom:4px}
+.lb-target{border:1px solid var(--line);border-radius:var(--r);background:var(--card);padding:18px 20px}
+.lb-total{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding-bottom:14px;margin-bottom:6px;border-bottom:1px solid var(--ink)}
+.lb-total b{font:300 52px/1 var(--mono);color:var(--ai)}
+.lb-total span{color:var(--mute)}
+.lb-meter{display:flex;height:8px;border-radius:4px;overflow:hidden;background:var(--line);flex:1 1 100%}
+.lb-meter i{display:block;background:var(--ai);transition:width .4s var(--ease)}
+.lb-grp{margin-top:14px}
+.lb-grp>div{display:flex;justify-content:space-between;font-weight:500;margin-bottom:4px}
+.lb-grp>div span{font:500 13px var(--mono);color:var(--ai)}
+.lb-target label.ck{margin:4px 0;padding:7px 10px;font-size:15px}
+.lb-target label.ck small{margin-left:auto;font:500 12px var(--mono);color:var(--subtle);white-space:nowrap}
+.lb-go{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.lb-go .btn{margin:0}
+@media(max-width:700px){.lb-tiga,.lb-aturan{grid-template-columns:1fr}.lb-mod{grid-template-columns:1fr}.mock{position:static;max-width:320px}}
 </style>
 </head>
 <body>
@@ -288,6 +340,7 @@ nav a i.s{font-size:11px;letter-spacing:-1px}
 <p class="cap">Mulai</p>
 <div class="list">
 <a href="#home"><i lang="ja">序</i>Mulai di sini</a>
+<a href="#lomba"><i lang="ja">案</i>Memahami soal lomba</a>
 <div class="sep">Frontend · Lomba 1 &amp; 2</div>
 <a href="#m1"><i lang="ja">一</i>Cara kerja web</a>
 <a href="#m2"><i lang="ja">二</i>HTML dan CSS responsif</a>
@@ -324,9 +377,11 @@ nav a i.s{font-size:11px;letter-spacing:-1px}
 <div><dt>Backend</dt><dd>MySQL, PHP, Laravel, Sanctum</dd></div>
 <div><dt>Isi</dt><dd>12 modul, editor langsung jalan, kuis</dd></div>
 </dl>
-<div class="acts"><a class="btn" href="#m1">Mulai Modul 1 <span aria-hidden="true">→</span></a><a class="btn ghost" href="#kisi">Isi kisi-kisi</a></div>
+<div class="acts"><a class="btn" href="#m1">Mulai Modul 1 <span aria-hidden="true">→</span></a><a class="btn ghost" href="#lomba">Memahami soal lomba</a></div>
 </div>
 </div>
+
+<div class="try"><b>Baru menerima dokumen kisi-kisi?</b> Baca dulu <a href="#lomba">Memahami soal lomba</a>. Di sana dijelaskan pelan-pelan apa yang akan diminta di tiap soal, cara nilai dihitung, dan arti istilah-istilah di dokumennya.</div>
 
 <div class="note"><b>Ketemu kata asing?</b> Kata yang bergaris putus-putus bisa diketuk untuk melihat artinya. Semua istilah dan arti kode ada di menu <a href="#kamus">Kamus istilah</a>.</div>
 
@@ -356,6 +411,199 @@ nav a i.s{font-size:11px;letter-spacing:-1px}
 <p>Setelah itu ada <a href="#m12">Modul 12: Simulasi lomba</a> untuk berlatih dengan batas waktu seperti hari-H.</p>
 
 <div class="note"><b>Error itu normal.</b> Programmer sungguhan mengalami error setiap hari. Baca pesannya, cari nomor baris, lalu perbaiki satu per satu.</div>
+</section>
+
+<!-- LOMBA -->
+<section id="lomba" class="mod" data-eb="Panduan untuk pemula" data-toc="1">
+<h2>Memahami soal lomba</h2>
+<p class="meta">Sekitar 20 menit. Baca ini dulu kalau kamu baru menerima dokumen kisi-kisi dan masih bingung isinya.</p>
+
+<h3>Apa itu LKS Web Technologies?</h3>
+<p><b>LKS</b> (Lomba Kompetensi Siswa) adalah lomba keahlian untuk siswa SMK. Di bidang <b>Web Technologies</b>, kamu tidak mengerjakan soal pilihan ganda. Kamu diminta <b>membuat aplikasi web sungguhan</b> di komputer panitia, dalam waktu terbatas. Setelah waktu habis, penguji membuka aplikasimu dan mencobanya satu per satu seperti pengguna biasa.</p>
+<p>Dokumen yang kamu terima disebut <b>kisi-kisi</b>: bocoran garis besar soal. Isinya tema, fitur apa saja yang akan diminta, dan berapa nilai tiap fitur. Soal lengkapnya (naskah soal) baru dibagikan di hari lomba.</p>
+<div class="note"><b>Kabar baiknya:</b> karena kisi-kisi sudah menyebut fitur-fiturnya, kita bisa berlatih membuat aplikasi yang mirip sejak sekarang. Itulah isi web latihan ini.</div>
+
+<h3>Tiga soal dalam satu lomba</h3>
+<p>Lomba dibagi menjadi tiga modul. Setiap modul adalah <b>satu aplikasi terpisah</b> dengan waktunya sendiri. Semuanya bertema Yogyakarta: wisata, event, dan ekonomi kreatif.</p>
+<div class="lb-tiga">
+<a href="#m5"><small>Modul 1 · 3 jam</small><b>Client-Side</b><span>Peta Jogja yang bisa ditandai</span><em>30 poin</em></a>
+<a href="#m6"><small>Modul 2 · 3 jam</small><b>Mobile Web Service</b><span>Aplikasi HP berisi daftar event</span><em>30 poin</em></a>
+<a href="#m9"><small>Modul 3 · 4 jam</small><b>Server-Side</b><span>Server data direktori + tampilannya</span><em>40 poin</em></a>
+</div>
+<p>Nama-nama modul di atas memang terdengar teknis. Artinya sebenarnya sederhana:</p>
+<table><tr><th>Nama di kisi-kisi</th><th>Artinya</th></tr>
+<tr><td>Client-Side</td><td>Semua berjalan di browser saja. Tidak ada server, tidak ada database.</td></tr>
+<tr><td>Mobile Web Service</td><td>Aplikasi web untuk layar HP yang mengambil data dari server milik panitia.</td></tr>
+<tr><td>Server-Side</td><td>Kamu membuat servernya sendiri (pakai Laravel), lalu membuat tampilan yang memakai server itu.</td></tr></table>
+
+<h3>Modul 1: Jelajah Jogja</h3>
+<div class="lb-mod">
+<div class="mock" aria-hidden="true">
+<div class="mk-bar">Jelajah Jogja</div>
+<div class="mk-body mk-peta">
+<div class="mk-map"><i style="left:30%;top:40%"></i><i style="left:58%;top:62%" class="b"></i><i style="left:72%;top:30%" class="c"></i></div>
+<div class="mk-side"><b>Pantai Depok</b><span>Wisata</span><span class="ln"></span><span class="ln s"></span><span class="bt">Hapus</span></div>
+</div>
+</div>
+<div>
+<p><b>Ceritanya:</b> kamu membuat halaman untuk mencatat tempat menarik di DIY. Panitia memberi gambar peta DIY. Pengguna mengklik peta untuk menaruh titik (marker), memberi nama dan kategori, lalu bisa mencari, memfilter, dan menghapusnya.</p>
+<p><b>Yang harus bisa:</b></p>
+<ul>
+<li>Klik peta → muncul form → titik muncul di tempat yang diklik</li>
+<li>Klik titik → muncul nama, kategori, dan deskripsinya</li>
+<li>Cari nama dan pilih kategori → daftar ikut menyaring</li>
+<li>Hapus titik</li>
+<li><b>Reload halaman, titik-titiknya masih ada</b> (pakai localStorage)</li>
+<li>Rapi dibuka di HP maupun laptop</li>
+</ul>
+<p><b>Disediakan panitia:</b> peta SVG dan data awal. <b>Alat:</b> HTML, CSS, JavaScript biasa.</p>
+<p><a href="#m5">Latihannya di Modul 5 →</a> (bekalnya di Modul 2 sampai 4)</p>
+</div>
+</div>
+
+<h3>Modul 2: JogjaEvent</h3>
+<div class="lb-mod">
+<div class="mock mk-hp" aria-hidden="true">
+<div class="mk-bar">JogjaEvent <span>◐</span></div>
+<div class="mk-body">
+<div class="mk-cari">Cari event…</div>
+<div class="mk-card"><i></i><span><b>Ngayogjazz</b><span class="ln s"></span></span><em>★</em></div>
+<div class="mk-card"><i class="b"></i><span><b>Pasar Kangen</b><span class="ln s"></span></span><em>☆</em></div>
+<div class="mk-card"><i class="c"></i><span><b>ARTJOG</b><span class="ln s"></span></span><em>☆</em></div>
+<div class="mk-more">Muat lagi</div>
+</div>
+</div>
+<div>
+<p><b>Ceritanya:</b> kamu membuat aplikasi untuk HP yang menampilkan daftar event di Jogja. Datanya <b>tidak kamu buat sendiri</b>: panitia sudah menyiapkan server (API), dan aplikasimu mengambil data dari sana.</p>
+<p><b>Yang harus bisa:</b></p>
+<ul>
+<li>Menampilkan daftar event dan kategori dari API</li>
+<li>Mencari event dan memfilter per kategori</li>
+<li>Tombol halaman berikutnya atau "Muat lagi"</li>
+<li>Membuka halaman detail event</li>
+<li>Menyimpan event favorit (bookmark) yang tetap ada setelah reload</li>
+<li>Mode terang/gelap yang diingat</li>
+<li>Tulisan "Memuat…" saat menunggu, dan pesan yang jelas kalau gagal</li>
+<li>Bisa dipakai dengan keyboard, gambar punya keterangan (aksesibilitas)</li>
+</ul>
+<p><b>Disediakan panitia:</b> alamat API, contoh data, dan cara memakainya. <b>Alat:</b> JavaScript biasa (framework hanya jika diizinkan).</p>
+<p><a href="#m6">Latihannya di Modul 6 →</a></p>
+</div>
+</div>
+
+<h3>Modul 3: Jogja Creative Hub</h3>
+<div class="lb-mod">
+<div class="mock" aria-hidden="true">
+<div class="mk-bar">Jogja Creative Hub <span>Keluar</span></div>
+<div class="mk-body mk-hub">
+<div class="mk-req"><b>POST</b> /api/items <em>201</em></div>
+<div class="mk-req"><b>GET</b> /api/items?page=2 <em>200</em></div>
+<div class="mk-req"><b>POST</b> /api/items <em class="er">401</em></div>
+<div class="mk-row"><b>Pantai Parangtritis</b><span>Ubah</span><span>Hapus</span></div>
+<div class="mk-row"><b>Gudeg Yu Djum</b><span>Ubah</span><span>Hapus</span></div>
+</div>
+</div>
+<div>
+<p><b>Ceritanya:</b> sekarang kamu yang membuat servernya. Isinya direktori tempat dan kegiatan kreatif Jogja. Dikerjakan dalam dua tahap:</p>
+<p><b>Tahap 1, REST API dengan Laravel</b> (bagian terbesar):</p>
+<ul>
+<li>Database dengan tabel <code>users</code>, <code>categories</code>, <code>items</code></li>
+<li>Daftar akun (register), masuk (login), keluar (logout)</li>
+<li>Tambah, lihat, ubah, hapus item. Tambah/ubah/hapus hanya boleh kalau sudah login</li>
+<li>Menolak isian yang salah dengan pesan yang jelas</li>
+<li>Bisa dicari dan dibagi per halaman</li>
+</ul>
+<p><b>Tahap 2, tampilan</b>: halaman login, daftar item, form tambah/ubah, tombol hapus dengan konfirmasi, dan pencarian. Semua mengambil data dari API buatanmu sendiri.</p>
+<p><a href="#m7">Latihannya di Modul 7 sampai 11 →</a></p>
+</div>
+</div>
+
+<h3>Bagaimana nilainya dihitung?</h3>
+<p>Total nilai <b>100 poin</b>. Setiap fitur punya jatah poin sendiri (disebut <b>bobot</b>), dan daftar fitur beserta bobotnya disebut <b>rubrik</b>. Penguji mencoba setiap fitur. Kalau fiturnya jalan, poinnya didapat.</p>
+<div class="lb-aturan">
+<div><b>✓ Yang dinilai</b>Fitur yang benar-benar jalan saat dicoba penguji.</div>
+<div><b>✗ Tidak menolong</b>Tampilan cantik tapi fiturnya rusak. Kode panjang yang error.</div>
+<div><b>! Pasti dicoba</b>Isian yang salah: form kosong, password keliru, data yang tidak ada.</div>
+</div>
+<div class="try"><b>Contoh</b>Di Modul 1, aplikasi Budi sangat rapi. Tapi saat penguji me-reload halaman, semua titik di peta hilang. Budi kehilangan bagian terbesar dari poin "Data dan penyimpanan" (6 poin), walaupun tampilannya bagus. Ani tampilannya biasa saja, tapi semua fiturnya jalan. Nilai Ani lebih tinggi.</div>
+<p>Kisi-kisi juga menyebut tiga tingkat kemampuan. Ini cuma cara panitia menggambarkan jenis soalnya:</p>
+<table><tr><th>Istilah</th><th>Artinya</th><th>Porsi</th></tr>
+<tr><td>Knowing</td><td>Tahu dan paham: apa itu HTML, API, method GET/POST</td><td>15%</td></tr>
+<tr><td>Applying</td><td>Bisa membuatnya: fitur CRUD, filter, mengambil data</td><td>60%</td></tr>
+<tr><td>Reasoning</td><td>Bisa memecahkan masalah: menangani error, validasi, mencari bug</td><td>25%</td></tr></table>
+<p>Artinya, sebagian besar nilai datang dari <b>praktik membuat</b>, bukan dari hafalan teori.</p>
+
+<h3>Hitung target nilaimu</h3>
+<p>Centang fitur yang <b>sudah bisa kamu buat sendiri tanpa melihat contoh</b>. Angkanya adalah perkiraan nilai kalau lomba diadakan hari ini. Ulangi tiap minggu dan lihat kemajuanmu.</p>
+<div id="target" class="lb-target"></div>
+
+<h3>Kata-kata asing di dokumen kisi-kisi</h3>
+<div class="gloss">
+<table><tr><th>Istilah</th><th>Artinya dalam bahasa sehari-hari</th></tr>
+<tr><td>Responsif</td><td>Tampilan menyesuaikan lebar layar, tidak berantakan di HP</td></tr>
+<tr><td>Mobile-first</td><td>Dirancang untuk HP dulu, baru disesuaikan untuk laptop</td></tr>
+<tr><td>DOM, event</td><td>Cara JavaScript mengubah isi halaman dan menanggapi klik atau ketikan</td></tr>
+<tr><td>localStorage</td><td>Tempat menyimpan data kecil di browser supaya tidak hilang saat reload</td></tr>
+<tr><td>Marker</td><td>Titik penanda di peta</td></tr>
+<tr><td>API</td><td>"Pintu" server untuk meminta atau mengirim data</td></tr>
+<tr><td>Endpoint</td><td>Satu alamat di API, misalnya <code>/api/events</code></td></tr>
+<tr><td>fetch API</td><td>Perintah JavaScript untuk mengambil data dari API</td></tr>
+<tr><td>Loading/error</td><td>Tulisan "sedang memuat" dan pesan kalau gagal</td></tr>
+<tr><td>Pagination</td><td>Data dibagi per halaman (halaman 1, 2, 3…)</td></tr>
+<tr><td>Bookmark</td><td>Daftar favorit</td></tr>
+<tr><td>Aksesibilitas</td><td>Aplikasi tetap bisa dipakai dengan keyboard dan pembaca layar</td></tr>
+<tr><td>REST API</td><td>API yang alamatnya rapi: <code>GET /items</code> lihat, <code>POST /items</code> tambah, dan seterusnya</td></tr>
+<tr><td>CRUD</td><td>Create, Read, Update, Delete: tambah, lihat, ubah, hapus</td></tr>
+<tr><td>Autentikasi, auth</td><td>Login. "Auth protected" artinya hanya boleh dibuka kalau sudah login</td></tr>
+<tr><td>Token</td><td>Semacam gelang tiket yang diberikan setelah login</td></tr>
+<tr><td>Validasi</td><td>Memeriksa isian, misalnya judul wajib diisi</td></tr>
+<tr><td>Migration, seed</td><td>Kode Laravel untuk membuat tabel dan mengisi data awal</td></tr>
+<tr><td>Framework</td><td>Kerangka siap pakai. Laravel untuk server, React/Vue untuk tampilan</td></tr>
+<tr><td>Vanilla JavaScript</td><td>JavaScript biasa tanpa framework</td></tr>
+<tr><td>Postman / Insomnia</td><td>Aplikasi untuk mencoba API tanpa membuat tampilan</td></tr>
+<tr><td>Aset panitia</td><td>Bahan dari panitia: peta, data, gambar. Jangan diganti kalau dilarang</td></tr>
+<tr><td>Kredensial</td><td>Password atau kunci rahasia. Dilarang menaruh milik pribadi di kode</td></tr>
+<tr><td>Dependency</td><td>Paket yang dibutuhkan aplikasi (misalnya Laravel). Harus sudah siap kalau internet dibatasi</td></tr></table>
+<p>Istilah lain ada di <a href="#kamus">Kamus istilah</a>.</p>
+</div>
+
+<h3>Aturan yang wajib diingat</h3>
+<label class="ck lb-ck"><input type="checkbox"><span>Mengerjakan <b>sendiri</b>, dengan komputer dan software dari panitia</span></label>
+<label class="ck lb-ck"><input type="checkbox"><span>Aplikasi harus <b>bisa dibuka di komputer penguji</b>, bukan hanya di laptopmu</span></label>
+<label class="ck lb-ck"><input type="checkbox"><span>Simpan di folder sesuai aturan, contohnya <code>01_CLIENT_SIDE</code>, <code>02_MOBILE_WEB_SERVICE</code>, <code>03_SERVER_SIDE</code>, plus <code>README.md</code> berisi cara menjalankan</span></label>
+<label class="ck lb-ck"><input type="checkbox"><span>Jangan menulis password atau API key pribadi di kode</span></label>
+<label class="ck lb-ck"><input type="checkbox"><span>Kalau internet dibatasi, semua paket (Laravel, dll.) harus sudah tersedia sebelum lomba</span></label>
+<label class="ck lb-ck"><input type="checkbox"><span>Jangan mengganti aset panitia (peta, data) kalau soal melarangnya</span></label>
+
+<h3>Yang belum pasti</h3>
+<p>Dokumen kisi-kisi masih berstatus <b>draft</b> (rancangan). Beberapa hal baru ditetapkan panitia nanti:</p>
+<ul>
+<li>Tanggal, tempat, dan apakah tiga modul dikerjakan dalam satu atau beberapa hari</li>
+<li>Alamat API untuk Modul 2</li>
+<li>Versi PHP, Laravel, dan software yang dipasang</li>
+<li>Boleh tidaknya React atau Vue di Modul 2 dan 3</li>
+<li>Boleh tidaknya membuka internet, dokumentasi, atau AI</li>
+</ul>
+<p>Jadi berlatihlah dengan cara yang paling aman: <b>JavaScript biasa, tanpa AI, tanpa contekan</b>. Kalau ternyata nanti boleh lebih, itu bonus.</p>
+
+<h3>Pertanyaan yang sering muncul</h3>
+<details><summary>Apakah saya harus hafal semua kode?</summary><p>Tidak harus hafal huruf per huruf. Yang penting paham <b>polanya</b>: misalnya "data berubah → simpan → tampilkan ulang", atau "route → controller → model". Pola yang sering dipakai akan hafal sendiri kalau sering diketik. Pakai <a href="#ulang">Latihan harian</a> 10 menit sehari.</p></details>
+<details><summary>Kalau waktu habis dan belum selesai semua?</summary><p>Nilai dihitung per fitur. Fitur yang sudah jalan tetap dapat poin. Karena itu, selesaikan satu fitur sampai benar-benar jalan sebelum pindah ke fitur lain, dan mulai dari yang bobotnya besar.</p></details>
+<details><summary>Saya belum pernah coding sama sekali. Mulai dari mana?</summary><p>Ikuti modul di web ini dari <a href="#m1">Modul 1</a> secara berurutan, jangan loncat. Modul 1 sampai 4 adalah bekal dasar yang dipakai di semua soal.</p></details>
+<details><summary>Kenapa belajar JavaScript dulu, bukan Laravel?</summary><p>JavaScript dipakai di Modul 1, Modul 2, dan tahap 2 Modul 3. Totalnya sekitar 68 dari 100 poin. Laravel hanya dipakai di tahap 1 Modul 3, sekitar 32 poin.</p></details>
+<details><summary>Bolehkah memakai React atau Vue?</summary><p>Modul 1 dikerjakan dengan JavaScript biasa. Untuk Modul 2 dan 3, tergantung izin panitia. Belum tentu boleh, jadi kuasai JavaScript biasa dulu.</p></details>
+<details><summary>Apa bedanya latihan di web ini dengan lomba aslinya?</summary><p>Di web ini, API sudah disediakan dalam bentuk tiruan supaya bisa latihan di HP. Di lomba, kamu bekerja di komputer dengan VS Code, browser, dan (untuk Modul 3) Laravel dan MySQL. Karena itu, kerjakan juga <a href="#m12">Simulasi lomba</a> di laptop.</p></details>
+
+<h3>Rencana belajar yang disarankan</h3>
+<table><tr><th>Tahap</th><th>Modul di web ini</th><th>Perkiraan waktu belajar</th></tr>
+<tr><td>1. Dasar web</td><td><a href="#m1">1</a> – <a href="#m4">4</a></td><td>2–3 minggu</td></tr>
+<tr><td>2. Latihan soal Modul 1 lomba</td><td><a href="#m5">5</a> + Paket A simulasi</td><td>1–2 minggu</td></tr>
+<tr><td>3. Latihan soal Modul 2 lomba</td><td><a href="#m6">6</a> + Paket B simulasi</td><td>1–2 minggu</td></tr>
+<tr><td>4. Laravel</td><td><a href="#m7">7</a> – <a href="#m10">10</a></td><td>3–4 minggu</td></tr>
+<tr><td>5. Latihan soal Modul 3 lomba</td><td><a href="#m11">11</a> + Paket C simulasi</td><td>2 minggu</td></tr>
+<tr><td>6. Ulang semua dengan timer</td><td><a href="#m12">12</a></td><td>Sampai hari lomba</td></tr></table>
+<p>Waktunya hanya perkiraan untuk belajar sekitar 1–2 jam per hari. Sesuaikan dengan jadwal yang diberikan guru.</p>
+<div class="acts lb-go"><a class="btn" href="#m1">Mulai Modul 1 <span aria-hidden="true">→</span></a><a class="btn ghost" href="#kisi">Lihat ringkasan kisi-kisi</a></div>
 </section>
 
 <!-- M1 -->
@@ -2652,7 +2900,7 @@ tampilkan();</code></pre></details>
 <!-- KISI -->
 <section id="kisi" class="mod">
 <h2>Kisi-kisi LKS Web Tech DIY 2027</h2>
-<p class="meta">Ringkasan dokumen kisi-kisi. Statusnya masih <b>draft usulan versi 1.0</b> dan menunggu pengesahan panitia, jadi detailnya bisa berubah.</p>
+<p class="meta">Ringkasan dokumen kisi-kisi. Statusnya masih <b>draft usulan versi 1.0</b> dan menunggu pengesahan panitia, jadi detailnya bisa berubah. Penjelasan untuk pemula ada di <a href="#lomba">Memahami soal lomba</a>.</p>
 <table><tr><th>Komponen</th><th>Keterangan</th></tr>
 <tr><td>Tingkat</td><td>Provinsi Daerah Istimewa Yogyakarta, 2027</td></tr>
 <tr><td>Rumpun kompetensi</td><td>Client-Side, Mobile Web Service, Server-Side</td></tr>
@@ -3008,7 +3256,7 @@ var G=[
     var seen={},w=document.createTreeWalker(m,NodeFilter.SHOW_TEXT,null),ns=[],n;
     while((n=w.nextNode()))ns.push(n);
     ns.forEach(function(n){
-      if(n.parentNode.closest('pre,code,button,a,summary,h2,h3,u,label,textarea,table,.hero,.bars,.term,.pe,.quiz,#kl,#dr'))return;
+      if(n.parentNode.closest('pre,code,button,a,summary,h2,h3,u,label,textarea,table,.hero,.bars,.mock,.gloss,.term,.pe,.quiz,#kl,#dr'))return;
       var t=n.nodeValue,rg=new RegExp(src,'gi'),ps=[],last=0,mt;
       while((mt=rg.exec(t))){var k=mt[1].toLowerCase();if(seen[k])continue;seen[k]=1;ps.push([mt.index,mt[1]])}
       if(!ps.length)return;
@@ -3896,18 +4144,19 @@ var DR=[
     if(m){
       h2.textContent=h2.textContent.replace(/^\d+\.\s*/,'');
       var tot=document.querySelectorAll('.mod[id^="m"]').length;eb.innerHTML='Modul '+('0'+m[1]).slice(-2)+' dari '+('0'+tot).slice(-2)+' <span lang="ja">'+KANJI[+m[1]]+'</span>';
-    }else{eb.textContent='Referensi'}
+    }else{eb.textContent=sec.dataset.eb||'Referensi'}
     sec.insertBefore(eb,h2);
     h2.insertAdjacentHTML('beforeend','<span class="dot">.</span>');
 
     // Nomor kecil di setiap subjudul + daftar isi
     var hs=[].slice.call(sec.querySelectorAll(':scope > h3'));
-    if(m&&hs.length>2){
+    if((m||sec.dataset.toc)&&hs.length>2){
       var facts=document.createElement('div');facts.className='facts';
       facts.innerHTML='<span><b>'+hs.length+'</b> bagian</span><span>'+(sec.querySelector('.term,.pe,.je,.pg')?'<b>Ada</b> latihan interaktif':'Latihan mandiri')+'</span><span>'+(sec.querySelector('.quiz')?'<b>Kuis</b> di akhir':'Checklist tugas')+'</span>';
-      (meta||h2).insertAdjacentElement('afterend',facts);
+      if(m)(meta||h2).insertAdjacentElement('afterend',facts);
+      else facts=meta||h2;
       var toc=document.createElement('div');toc.className='toc';
-      toc.innerHTML='<b>Isi modul ini</b><ol></ol>';
+      toc.innerHTML='<b>'+(m?'Isi modul ini':'Isi halaman ini')+'</b><ol></ol>';
       var ol=toc.querySelector('ol');
       hs.forEach(function(h,i){
         var num=(i+1<10?'0':'')+(i+1);
@@ -3949,6 +4198,41 @@ var DR=[
   }
   document.addEventListener('change',function(e){if(e.target.matches&&e.target.matches('input[data-k]'))prog()});
   prog();
+})();
+</script>
+<script>
+/* Hitung target nilai: rubrik dari kisi-kisi, centangan disimpan di browser. */
+(function(){
+  var box=document.getElementById('target');if(!box)return;
+  var R=[
+    ['Modul 1 · Client-Side',[['UI rapi dan responsif',6],['Marker bisa dibuat, dipilih, dan ditampilkan',8],['Data marker tetap ada setelah reload',6],['Pencarian dan filter kategori',4],['Hapus marker dan kontrol dasar',3],['Kode rapi, tanpa error di Console',3]]],
+    ['Modul 2 · Mobile Web Service',[['Tampilan mobile-first dan navigasi jelas',7],['Ambil data dari API, ada loading dan error',7],['Pencarian dan filter kategori',4],['Halaman detail dan bookmark tersimpan',5],['Mode gelap tersimpan dan aksesibilitas dasar',4],['Kode rapi dan mudah dibaca',3]]],
+    ['Modul 3 · Server-Side',[['Migration, relasi, dan seeder',5],['Register, login, logout, endpoint terlindungi',6],['Endpoint REST dan CRUD',8],['Validasi dan status HTTP yang benar',4],['Pencarian, filter, dan pagination di API',3],['Tampilan: login, daftar, tambah, ubah, hapus',8],['Struktur kode dan penamaan',3],['Menguji alur utama dan menangani error',3]]]
+  ],KEY='lks-target',st={};
+  try{st=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+  var h='<div class="lb-total"><b id="tg-n">0</b><span>dari 100 poin</span><div class="lb-meter" aria-hidden="true"><i id="tg-bar" style="width:0"></i></div></div>';
+  R.forEach(function(g,gi){
+    h+='<div class="lb-grp"><div>'+g[0]+'<span id="tg-'+gi+'"></span></div>';
+    g[1].forEach(function(it,ii){h+='<label class="ck"><input type="checkbox" data-t="'+gi+'-'+ii+'" data-w="'+it[1]+'"'+(st[gi+'-'+ii]?' checked':'')+'><span>'+it[0]+'</span><small>'+it[1]+' poin</small></label>'});
+    h+='</div>';
+  });
+  box.innerHTML=h;
+  function hitung(){
+    var tot=0;
+    R.forEach(function(g,gi){
+      var s=0,m=0;
+      [].slice.call(box.querySelectorAll('input[data-t^="'+gi+'-"]')).forEach(function(c){m+=+c.dataset.w;if(c.checked)s+=+c.dataset.w});
+      tot+=s;document.getElementById('tg-'+gi).textContent=s+' / '+m;
+    });
+    document.getElementById('tg-n').textContent=tot;
+    document.getElementById('tg-bar').style.width=tot+'%';
+  }
+  box.addEventListener('change',function(e){
+    var c=e.target;if(!c.dataset.t)return;
+    st[c.dataset.t]=c.checked;try{localStorage.setItem(KEY,JSON.stringify(st))}catch(x){}
+    hitung();
+  });
+  hitung();
 })();
 </script>
 </body>
